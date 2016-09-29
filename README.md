@@ -33,8 +33,6 @@ Le but est de découvrir l'API BrowserWindow
 ### Etape 03
 
 Le but est d'afficher la liste des memes par défaut
- - Mettre à disposition le snippet HTML de l'affichage d'une card
- - Mettre à disposition le tableau des images à afficher
 
 ### Etape 04
 
