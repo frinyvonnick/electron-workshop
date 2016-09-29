@@ -1,0 +1,29 @@
+{
+  "name": "electron-workshop",
+  "version": "0.1.0",
+  "description": "Workshop Electron du Devfest Nantes 2016",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frinyvonnick/electron-workshop.git"
+  },
+  "keywords": [
+    "github",
+    "electron",
+    "js",
+    "meme"
+  ],
+  "author": "Yvonnick Frin <yvonnick.frin@zenika.com>",
+  "contributors": [
+    "Eric Briand <eric.briand@zenika.com>",
+    "Philippe Charrière <k33g@github.com>"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frinyvonnick/electron-workshop/issues"
+  },
+  "homepage": "https://github.com/frinyvonnick/electron-workshop#readme"
+}
