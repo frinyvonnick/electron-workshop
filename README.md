@@ -19,3 +19,43 @@ src
 |-windows           HTML des différents windows
 |-main.js         Point d'entrée de l'application
 ```
+
+## Description des étapes
+
+### Etape 01
+
+Le but est de lancer l'application en utilisant le CLI Electron
+
+### Etape 02
+
+Le but est de découvrir l'API BrowserWindow
+
+### Etape 03
+
+Le but est d'afficher la liste des memes par défaut
+ - Mettre à disposition le snippet HTML de l'affichage d'une card
+ - Mettre à disposition le tableau des images à afficher
+
+### Etape 04
+
+Déplacer la liste des images côté MainProcess et implémenter la communication avec le RendererProcess
+
+### Etape 05
+
+Le but est d'utiliser l'API fileDialog pour aller chercher une image à ajouter dans l'application
+
+### Etape 06
+
+Ajouter un menu contextuel pour pouvoir effacer une image
+
+### Etape 07
+
+Ajouter des notifications
+
+### Etape 08
+
+Ajouter le packaging de l'application
+
+### Etape bonus
+
+Tester le lancement de l'application
