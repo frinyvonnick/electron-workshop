@@ -1,0 +1,47 @@
+{
+  "name": "electron-start",
+  "productName": "Electron-start",
+  "version": "0.0.0",
+  "description": "Electron bootstrap",
+  "license": "MIT",
+  "repository": "https://github.com/frinyvonnick/electron-start",
+  "homepage": "https://github.com/frinyvonnick/electron-start",
+  "bugs": "frin.yvonnick@gmail.com",
+  "engines": {},
+  "contributors": [],
+  "author": {
+    "name": "FRIN Yvonnick",
+    "email": "frin.yvonnick@gmail.com",
+    "url": "https://github.com/frinyvonnick"
+  },
+  "scripts": {
+    "start": "gulp",
+    "dev": "gulp --debug",
+    "lint": "standard",
+    "less": "gulp less",
+    "test": "npm run lint",
+    "build": "electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all --ignore \"node_modules/\\.bin\""
+  },
+  "files": [
+    "index.js",
+    "index.html",
+    "index.css"
+  ],
+  "keywords": [
+    "electron-app",
+    "electron"
+  ],
+  "dependencies": {
+    "electron-debug": "1.0.0"
+  },
+  "devDependencies": {
+    "devtron": "1.1.0",
+    "electron": "1.4.0",
+    "electron-connect": "0.6.0",
+    "electron-packager": "8.0.0",
+    "gulp": "3.9.1",
+    "gulp-less": "3.1.0",
+    "less": "2.7.1",
+    "standard": "8.2.0"
+  }
+}

@@ -1,0 +1,207 @@
+@broken-white: #F5F5F5;
+@darker-broken-white: #ece5e5;
+
+@white:#fff;
+
+@light-gray: #ddd;
+@antracite-black: #333;
+@light-antracite-black: #666;
+
+@orange: #f4ad2c;
+@light-orange: #f5bf5b;
+
+@padding: 10px 15px;
+
+@footer-height: 50px;
+@header-height: 100px;
+@nav-width: 40%;
+@content-width: 60%;
+
+@font-roboto: "Roboto", sans-serif;
+@font-roboto-condensed: "Roboto Condensed", sans-serif;
+
+@card-per-line: 4;
+
+@img-plus: url('../img/plus.png');
+@img-plus-hover: url('../img/plus-hover.png');
+@img-save: url('../img/save.png');
+@img-previous: url('../img/previous.png');
+
+* {
+  font-family: @font-roboto;
+  box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: @font-roboto-condensed;
+}
+
+html{
+  height: 100vh;
+}
+
+body {
+  display:flex;
+  flex-direction: column;
+
+  margin: 0;
+  height: 100%;
+
+  background-color: @broken-white;
+  header {
+    flex: 0 0 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: @padding;
+
+    background-color: @orange;
+    border-bottom: 5px solid @light-orange;
+    h1, p {
+      margin: 0;
+    }
+    p{
+      font-style: italic;
+    }
+  }
+  .container{
+    position: relative;
+    flex: 1 0 calc(~"100% - 150px"); // Fix to cross unit calculations
+    overflow-x: hidden;
+    display:flex;
+    flex-wrap:wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    padding-bottom: 1%;
+    &.hello{
+      flex-direction: column;
+      justify-content: center;
+      p{
+        width: 100%;
+        text-align: center;
+        font-size: 48px;
+        color: #666;
+        font-weight: 700;
+      }
+    }
+    .card{
+      flex:0 0 calc((100% - 5%) / @card-per-line);
+      max-width: calc((100% - 5%) / @card-per-line);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 1% 0 0 1%;
+      height: 200px;
+      background-color: @white;
+      transition: all 500ms;
+      .img{
+        flex: 0 0 125px;
+        opacity:1;
+        transition: all 500ms;
+        background-position: center;
+        background-size: cover;
+      }
+      h3{
+        flex: 0 0 75px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 400;
+        padding: 10px 15px;
+        margin: 0;
+        span{
+          max-width: 95%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          align-self: center;
+        }
+      }
+      &:hover{
+        cursor: pointer;
+        background-color: @orange;
+        color:@white;
+        .img{
+          opacity:0.65;
+        }
+      }
+      &#new-meme{
+        .img{
+          background-image: @img-plus;
+        }
+        &:hover{
+          .img{
+            background-image: @img-plus-hover;
+          }
+        }
+      }
+    }
+  }
+  &.edit-page{
+    flex-direction: row;
+    .editor{
+      flex:1 1 auto;
+      display: flex;
+      justify-content: center;
+      background-color: @orange;
+      position: relative;
+      img{
+        align-self: center;
+        max-width: 100%;
+        max-height: 100%;
+      }
+      .top, .bottom{
+        position: absolute;
+      }
+      textarea{
+        width: 100%;
+        height: 100%;
+        resize: none;
+        text-align: center;
+        background-color: transparent;
+        outline: 0;
+        border: 0;
+        overflow: hidden;
+        text-shadow: 2px 0 0 @white, -2px 0 0 @white, 0 2px 0 @white, 0 -2px 0 @white, 1px 1px @white, -1px -1px 0 @white, 1px -1px 0 @white, -1px 1px 0 @white;
+      }
+    }
+    .toolbar{
+      flex: 0 0 50px;
+      display: flex;
+      flex-direction: column;
+      background-color: @antracite-black;
+      button{
+        flex: 0 0 50px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+        &.previous{
+          background-image: @img-previous;
+        }
+        &.save{
+          background-image: @img-save;
+        }
+        &:hover{
+          cursor: pointer;
+          background-color: @light-antracite-black;
+        }
+      }
+    }
+  }
+  footer {
+    flex: 0 0 50px;
+    display: flex;
+
+    background-color: @orange;
+
+    padding: @padding;
+
+    p{
+      align-self: center;
+    }
+  }
+}
