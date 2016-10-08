@@ -1,6 +1,8 @@
 const { app, BrowserWindow } = require('electron')
 const glob = require('glob')
 const path = require('path')
+const { getMemes, initWithDefaultsMemes } = require('./assets/storage')
+const { copyDefaultsMemesFiles } = require('./assets/initMemesDirectory')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -25,6 +27,17 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
+})
+
+app.on('will-finish-launching', () => {
+  // init database with defaults memes located in assets/img/defaults
+  getMemes(memes => {
+    if (Object.keys(memes).length === 0 && memes.constructor === Object) {
+      copyDefaultsMemesFiles((defaultMemes) => {
+        initWithDefaultsMemes(defaultMemes)
+      })
+    }
+  })
 })
 
 // Load scripts of main process
