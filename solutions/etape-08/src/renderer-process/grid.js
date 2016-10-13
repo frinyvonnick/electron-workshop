@@ -1,4 +1,5 @@
-const { ipcRenderer } = require('electron')
+const { remote, ipcRenderer } = require('electron')
+const { Menu, MenuItem } = remote
 const path = require('path')
 
 ipcRenderer.send('get-memes')
@@ -18,4 +19,40 @@ ipcRenderer.on('memes-sended', (e, images) => {
   </div>`
 
   document.getElementById('new-meme').addEventListener('click', () => ipcRenderer.send('open-file-dialog'))
+
+	const elements = document.getElementsByClassName('meme')
+  for (var i = 0; i < elements.length; i++) {
+    const element = elements[i]
+
+    // Gère le menu contextuel sur un meme
+    element.addEventListener('contextmenu', e => {
+      e.preventDefault()
+      let menu = new Menu()
+      menu.append(new MenuItem({label: 'Save as', click (item, browserWindow) { ipcRenderer.send('save-from-grid', images[parseInt(element.getAttribute('data-index'), 10)].path) }}))
+      menu.append(new MenuItem({label: 'Delete', click (item, browserWindow) { ipcRenderer.send('delete-selected-meme', images[parseInt(element.getAttribute('data-index'), 10)]) }}))
+      menu.popup(remote.getCurrentWindow())
+    })
+
+		// Gère l'ouverture de la fenètre de détails
+    element.addEventListener('click', e => {
+      ipcRenderer.send('set-selected-meme', images[parseInt(element.getAttribute('data-index'), 10)].path)
+    })
+  }
+})
+
+ipcRenderer.on('meme-deleted', () => {
+  ipcRenderer.send('get-memes', {})
+
+  const notification = new Notification('Meme Generator', {
+    body: 'Le meme a bien été supprimé'
+  })
+  notification()
+})
+
+ipcRenderer.on('saved-file-grid', function (event, path) {
+  if (!path) path = 'No path'
+  const notification = new Notification('Meme Generator', {
+    body: `Le meme a été sauvegardé à l'emplacement ${path}`
+  })
+  notification()
 })

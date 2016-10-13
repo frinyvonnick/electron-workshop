@@ -46,17 +46,6 @@ body .container {
   align-content: flex-start;
   padding-bottom: 1%;
 }
-body .container.hello {
-  flex-direction: column;
-  justify-content: center;
-}
-body .container.hello p {
-  width: 100%;
-  text-align: center;
-  font-size: 48px;
-  color: #666;
-  font-weight: 700;
-}
 body .container .card {
   flex: 0 0 calc(23.75%);
   max-width: calc(23.75%);
@@ -106,24 +95,38 @@ body .container .card#new-meme .img {
 body .container .card#new-meme:hover .img {
   background-image: url('../img/plus-hover.png');
 }
-body.edit-page {
-  flex-direction: row;
-}
-body.edit-page .editor {
-  flex: 1 1 auto;
-  display: flex;
-  justify-content: center;
-  background-color: #f4ad2c;
-  position: relative;
-}
-body.edit-page .editor img {
-  align-self: center;
+body.details-page img {
   max-width: 100%;
-  max-height: 100%;
+  align-self: center;
+}
+body.edit-page .editor .title {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  background-color: transparent;
+  border: 0;
+  width: 100%;
+  outline: 0;
+  height: 50px;
+  text-align: center;
+  font-size: 50px;
+}
+body.edit-page .editor #wrapper {
+  flex: 0 0 100%;
+  align-self: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  height: 100%;
+}
+body.edit-page .editor #wrapper img {
+  position: absolute;
+  max-width: 100%;
 }
 body.edit-page .editor .top,
 body.edit-page .editor .bottom {
   position: absolute;
+  z-index: 2;
 }
 body.edit-page .editor textarea {
   width: 100%;
@@ -134,15 +137,29 @@ body.edit-page .editor textarea {
   outline: 0;
   border: 0;
   overflow: hidden;
-  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+  color: #fff;
 }
-body.edit-page .toolbar {
+body.edit-page,
+body.details-page {
+  flex-direction: row;
+}
+body.edit-page .editor,
+body.details-page .editor {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  background-color: #f4ad2c;
+  position: relative;
+}
+body.edit-page .toolbar,
+body.details-page .toolbar {
   flex: 0 0 50px;
   display: flex;
   flex-direction: column;
   background-color: #333;
 }
-body.edit-page .toolbar button {
+body.edit-page .toolbar button,
+body.details-page .toolbar button {
   flex: 0 0 50px;
   background-position: center;
   background-repeat: no-repeat;
@@ -150,13 +167,16 @@ body.edit-page .toolbar button {
   border: 0;
   outline: 0;
 }
-body.edit-page .toolbar button.previous {
+body.edit-page .toolbar button.previous,
+body.details-page .toolbar button.previous {
   background-image: url('../img/previous.png');
 }
-body.edit-page .toolbar button.save {
+body.edit-page .toolbar button.save,
+body.details-page .toolbar button.save {
   background-image: url('../img/save.png');
 }
-body.edit-page .toolbar button:hover {
+body.edit-page .toolbar button:hover,
+body.details-page .toolbar button:hover {
   cursor: pointer;
   background-color: #666;
 }

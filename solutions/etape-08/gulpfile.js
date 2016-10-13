@@ -10,26 +10,27 @@ gulp.task('default', ['less'], () => {
   processManager.start(args)
   // Restart browser process
   gulp.watch([
-    './main.js',
-    './main-process/**/*.js'
+    './src/main.js',
+    './src/main-process/**/*.js'
   ], () => {
     processManager.restart(args)
   })
   // Reload renderer process
   gulp.watch([
-    './index.js',
-    './renderer-process/**/*.js',
-    './windows/**/*.html',
-    './assets/**/*.{less,js,css}'
+    './src/index.js',
+    './src/renderer-process/**/*.js',
+    './src/windows/**/*.html',
+    './src/assets/**/*.{less,js,css}'
   ], processManager.reload)
 })
 
 gulp.task('less', () => {
   gulp.watch([
-    './assets/**/*.less'
+    './src/assets/**/*.less'
   ], () => {
-    gulp.src('./assets/less/index.less')
+		console.log('compile less files')
+    gulp.src('./src/assets/less/index.less')
       .pipe(less())
-      .pipe(gulp.dest('./assets/css'))
+      .pipe(gulp.dest('./src/assets/css'))
   })
 })

@@ -1,13 +1,14 @@
 const storage = require('electron-json-storage')
+const image = require('./image')
 const path = require('path')
 
-exports.addMeme = (memePath, callback) => {
-  const memeName = path.basename(memePath)
+const addMeme = (title, memePath, callback) => {
+	const memeName = path.basename(memePath)
   storage.get('memes', (error, data) => {
     if (error) throw error
 
     data.push({
-      title: memeName,
+      title: (title !== '') ? title : memeName,
       path: memePath
     })
     storage.set('memes', data, (error) => {
@@ -17,16 +18,17 @@ exports.addMeme = (memePath, callback) => {
   })
 }
 
+exports.addMeme = addMeme
+
 exports.deleteMeme = (selectedMeme, callback) => {
-  storage.get('memes', (error, memes) => {
-    if (error) throw error
-
-    storage.set('memes', memes.filter(meme => meme !== selectedMeme), (error) => {
+	getMemes(memes => {
+		storage.set('memes', memes.filter(meme => {
+			return !(meme.title == selectedMeme.title && meme.path == selectedMeme.path)
+		}), (error) => {
       if (error) throw error
-
       callback()
     })
-  })
+	})
 }
 
 const getMemes = (callback) => {
@@ -41,4 +43,17 @@ exports.initWithDefaultsMemes = (defaultMemes) => {
   storage.set('memes', defaultMemes, (error) => {
     if (error) throw error
   })
+}
+
+exports.saveMeme = (newMeme, title, texts, callback) => {
+	getMemes((memes) => {
+		image.saveimage(newMeme, texts, (memePath, error) => {
+      if (error) throw error
+      addMeme(title, memePath, (error) => {
+				console.log('ERROR', error)
+        if (error) throw error
+        callback()
+      })
+    })
+	})
 }

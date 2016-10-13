@@ -10,26 +10,18 @@
 
   <link rel="stylesheet" type="text/css" href="../assets/css/index.css">
 </head>
-<body class="edit-page">
+<body class="details-page">
   <div class="editor">
-		<input type="text" id="title" class="title" value="Enter title here">
-    <div class="top">
-      <textarea rows="2" cols="40" name="topText"></textarea>
-    </div>
-    <div class="bottom">
-      <textarea rows="2" cols="40" name="bottomText"></textarea>
-    </div>
-		<div id="wrapper">
-      <img src="" alt=""/>
-    </div>
+    <img id="meme" src="" alt=""/>
   </div>
   <div class="toolbar">
     <button class="previous" id="previous"></button>
-    <button class="save" id="save"></button>
   </div>
 
   <script type="text/javascript">
-    require('../renderer-process/edit.js');
+    require('../renderer-process/detail.js');
+    // Livereload
+    require('../assets/client.js');
   </script>
  </body>
 </html>

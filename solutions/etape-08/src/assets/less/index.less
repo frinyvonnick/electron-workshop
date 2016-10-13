@@ -20,13 +20,6 @@
 @font-roboto: "Roboto", sans-serif;
 @font-roboto-condensed: "Roboto Condensed", sans-serif;
 
-@card-per-line: 4;
-
-@img-plus: url('../img/plus.png');
-@img-plus-hover: url('../img/plus-hover.png');
-@img-save: url('../img/save.png');
-@img-previous: url('../img/previous.png');
-
 * {
   font-family: @font-roboto;
   box-sizing: border-box;
@@ -67,27 +60,16 @@ body {
   }
   .container{
     position: relative;
-    flex: 1 0 calc(~"100% - 150px"); // Fix to cross unit calculations
+    flex: 1 0 calc(~"100% - 150px");
     overflow-x: hidden;
     display:flex;
     flex-wrap:wrap;
     align-items: flex-start;
     align-content: flex-start;
     padding-bottom: 1%;
-    &.hello{
-      flex-direction: column;
-      justify-content: center;
-      p{
-        width: 100%;
-        text-align: center;
-        font-size: 48px;
-        color: #666;
-        font-weight: 700;
-      }
-    }
     .card{
-      flex:0 0 calc((100% - 5%) / @card-per-line);
-      max-width: calc((100% - 5%) / @card-per-line);
+      flex:0 0 calc((100% - 5%)/4);
+      max-width: calc((100% - 5%)/4);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -129,31 +111,50 @@ body {
       }
       &#new-meme{
         .img{
-          background-image: @img-plus;
+          background-image: url('../img/plus.png');
         }
         &:hover{
           .img{
-            background-image: @img-plus-hover;
+            background-image: url('../img/plus-hover.png');
           }
         }
       }
     }
   }
+  &.details-page{
+    img{
+      max-width: 100%;
+      align-self: center;
+    }
+  }
   &.edit-page{
-    flex-direction: row;
     .editor{
-      flex:1 1 auto;
-      display: flex;
-      justify-content: center;
-      background-color: @orange;
-      position: relative;
-      img{
+      .title{
+        position: absolute;
+        top: 10px;
+        left: 0;
+        background-color: transparent;
+        border: 0;
+        width: 100%;
+        outline: 0;
+        height: 50px;
+        text-align: center;
+        font-size: 50px;
+      }
+      #wrapper{
+        flex: 0 0 100%;
         align-self: center;
-        max-width: 100%;
-        max-height: 100%;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        img{
+          position: absolute;
+          max-width: 100%;
+        }
       }
       .top, .bottom{
         position: absolute;
+        z-index: 2;
       }
       textarea{
         width: 100%;
@@ -164,8 +165,18 @@ body {
         outline: 0;
         border: 0;
         overflow: hidden;
-        text-shadow: 2px 0 0 @white, -2px 0 0 @white, 0 2px 0 @white, 0 -2px 0 @white, 1px 1px @white, -1px -1px 0 @white, 1px -1px 0 @white, -1px 1px 0 @white;
+        color: @white;
       }
+    }
+  }
+  &.edit-page, &.details-page{
+    flex-direction: row;
+    .editor{
+      flex:1 1 auto;
+      display: flex;
+      justify-content: center;
+      background-color: @orange;
+      position: relative;
     }
     .toolbar{
       flex: 0 0 50px;
@@ -180,10 +191,10 @@ body {
         border: 0;
         outline: 0;
         &.previous{
-          background-image: @img-previous;
+          background-image: url('../img/previous.png');
         }
         &.save{
-          background-image: @img-save;
+          background-image: url('../img/save.png');
         }
         &:hover{
           cursor: pointer;
