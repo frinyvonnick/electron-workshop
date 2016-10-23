@@ -1,6 +1,8 @@
+[![Electron Logo](http://electron.atom.io/images/electron-logo.svg)](http://electron.atom.io/)
+
 # Workshop Electron du Devfest Nantes 2016
 
-Le but du worshop est de construire une application de génération de meme avec le framework Electron.
+Le but du workshop est de construire une application de génération de meme avec le framework Electron.
 
 Le workshop sera cadencé par des présentations de nouveaux concepts à chaque étape.
 
@@ -22,9 +24,26 @@ src
 
 ## Description des étapes
 
-### Etape 01
+Afin de mettre en oeuvre les concepts d'electron vus dans le cours, nous vous proposons de développer une application de meme generator.
 
-Le but est de lancer l'application en utilisant le CLI Electron
+Nous partirons d'un squelette de projet electron simple, qui sera enrichie au fur et à mesure des étapes. Le résultat final sera une application desktop multi fenêtré, avec des interactions et comportements d'une application desktop moderne.
+
+Le squelette est composé de tous les fichiers de l'application. Vous n'aurez qu'à compléter ces fichiers.
+
+### Etape 01 : Hello world
+
+Nous allons commencer par démarrer notre application electron en affichant une première page statique.
+
+- Ouvrez le fichier `src/main.js`
+- Importez les dépendances `app` et `BrowserWindow` depuis electron
+- Sur l'évenement `ready` de app, instancier une nouvelle `BrowserWindow`
+- Chargez le fichier `index.html` dans votre fenêtre nouvellement créée
+- Démarrez votre application en executant `npm start`
+
+Documentation nécéssaire à l'étape :
+ - http://electron.atom.io/docs/api/app/
+ - http://electron.atom.io/docs/api/browser-window/
+
 
 ### Etape 02
 
