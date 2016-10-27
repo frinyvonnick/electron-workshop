@@ -45,6 +45,14 @@
     "less": "2.7.1",
     "standard": "8.2.0"
   },
+  "standard": {
+    "globals": [
+      "Notification"
+    ],
+    "env": {
+      "mocha": true
+    }
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/frinyvonnick/electron-workshop/issues"

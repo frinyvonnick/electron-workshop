@@ -20,7 +20,7 @@ ipcRenderer.on('memes-sended', (e, images) => {
 
   document.getElementById('new-meme').addEventListener('click', () => ipcRenderer.send('open-file-dialog'))
 
-	const elements = document.getElementsByClassName('meme')
+  const elements = document.getElementsByClassName('meme')
   for (var i = 0; i < elements.length; i++) {
     const element = elements[i]
 
@@ -33,7 +33,7 @@ ipcRenderer.on('memes-sended', (e, images) => {
       menu.popup(remote.getCurrentWindow())
     })
 
-		// Gère l'ouverture de la fenètre de détails
+    // Gère l'ouverture de la fenètre de détails
     element.addEventListener('click', e => {
       ipcRenderer.send('set-selected-meme', images[parseInt(element.getAttribute('data-index'), 10)].path)
     })

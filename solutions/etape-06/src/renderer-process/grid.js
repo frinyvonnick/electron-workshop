@@ -43,16 +43,14 @@ ipcRenderer.on('memes-sended', (e, images) => {
 ipcRenderer.on('meme-deleted', () => {
   ipcRenderer.send('get-memes', {})
 
-  const notification = new Notification('Meme Generator', {
-    body: 'Le meme a bien été supprimé'
-  })
-  notification()
+  // TODO: Faites une notification qui informe l'utilisateur
+	// que le meme a bien été supprimé
 })
 
 ipcRenderer.on('saved-file-grid', function (event, path) {
   if (!path) path = 'No path'
-  const notification = new Notification('Meme Generator', {
-    body: `Le meme a été sauvegardé à l'emplacement ${path}`
-  })
-  notification()
+
+	// TODO: Faites une notification qui informe l'utilisateur
+	// que le meme a bien été sauvegardé à l'emplacement
+	// contenu dans la varialbe path
 })
