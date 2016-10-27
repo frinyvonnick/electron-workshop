@@ -21,7 +21,7 @@
     "Eric Briand <eric.briand@zenika.com>",
     "Philippe Charrière <k33g@github.com>"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/frinyvonnick/electron-workshop/issues"
   },
