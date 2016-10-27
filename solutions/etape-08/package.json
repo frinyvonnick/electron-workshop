@@ -9,7 +9,6 @@
     "lint": "standard",
     "less": "gulp less",
     "test": "npm run lint",
-    "build": "electron-packager . --out=dist --app-version=$npm_package_version --platform=win32 --arch=x64 --prune --asar --overwrite --all --ignore \"node_modules/\\.bin\""
   },
   "repository": {
     "type": "git",
