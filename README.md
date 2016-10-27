@@ -30,19 +30,19 @@ Nous partirons d'un squelette de projet electron simple, qui sera enrichie au fu
 
 Le squelette est composé de tous les fichiers de l'application. Vous n'aurez qu'à compléter ces fichiers.
 
-### Etape 01 : Hello world
+### Etape 01
 
 Nous allons commencer par démarrer notre application electron en affichant une première page statique.
 
 - Ouvrir le fichier `src/main.js`
 - Importer les dépendances `app` et `BrowserWindow` depuis `electron`
 - Sur l'événement `ready` de app, instancier une nouvelle `BrowserWindow`
-- Charger le fichier `index.html` dans votre fenêtre nouvellement créée
+- Charger le fichier `windows/index.html` dans votre fenêtre nouvellement créée
 - Démarrer votre application en executant `./node_modules/.bin/electron .`
 
 Documentation nécessaire à l'étape :
- - http://electron.atom.io/docs/api/app/
- - http://electron.atom.io/docs/api/browser-window/
+- http://electron.atom.io/docs/api/app/
+- http://electron.atom.io/docs/api/browser-window/
 
 
 ### Etape 02
