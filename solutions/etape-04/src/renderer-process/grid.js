@@ -19,7 +19,8 @@ ipcRenderer.on('memes-sended', (e, images) => {
   <h3><span>New</span></h3>
   </div>`
 
-  document.getElementById('new-meme').addEventListener('click', () => ipcRenderer.send('open-file-dialog'))
+	// TODO (Etape 5): Mettre en place l'event listener 'click' sur l'élément
+	// HTML id 'new-meme' qui va émettre l'évènement 'open-file-dialog' avec l'IPC
 
   const elements = document.getElementsByClassName('meme')
   for (var i = 0; i < elements.length; i++) {

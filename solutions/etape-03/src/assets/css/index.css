@@ -1,0 +1,191 @@
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Condensed", sans-serif;
+}
+html {
+  height: 100vh;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100%;
+  background-color: #F5F5F5;
+}
+body header {
+  flex: 0 0 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 15px;
+  background-color: #f4ad2c;
+  border-bottom: 5px solid #f5bf5b;
+}
+body header h1,
+body header p {
+  margin: 0;
+}
+body header p {
+  font-style: italic;
+}
+body .container {
+  position: relative;
+  flex: 1 0 calc(100% - 150px);
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding-bottom: 1%;
+}
+body .container .card {
+  flex: 0 0 calc(23.75%);
+  max-width: calc(23.75%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1% 0 0 1%;
+  height: 200px;
+  background-color: #fff;
+  transition: all 500ms;
+}
+body .container .card .img {
+  flex: 0 0 125px;
+  opacity: 1;
+  transition: all 500ms;
+  background-position: center;
+  background-size: cover;
+}
+body .container .card h3 {
+  flex: 0 0 75px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 10px 15px;
+  margin: 0;
+}
+body .container .card h3 span {
+  max-width: 95%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-self: center;
+}
+body .container .card:hover {
+  cursor: pointer;
+  background-color: #f4ad2c;
+  color: #fff;
+}
+body .container .card:hover .img {
+  opacity: 0.65;
+}
+body .container .card#new-meme .img {
+  background-image: url('../img/plus.png');
+}
+body .container .card#new-meme:hover .img {
+  background-image: url('../img/plus-hover.png');
+}
+body.details-page img {
+  max-width: 100%;
+  align-self: center;
+}
+body.edit-page .editor .title {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  background-color: transparent;
+  border: 0;
+  width: 100%;
+  outline: 0;
+  height: 50px;
+  text-align: center;
+  font-size: 50px;
+}
+body.edit-page .editor #wrapper {
+  flex: 0 0 100%;
+  align-self: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  height: 100%;
+}
+body.edit-page .editor #wrapper img {
+  position: absolute;
+  max-width: 100%;
+}
+body.edit-page .editor .top,
+body.edit-page .editor .bottom {
+  position: absolute;
+  z-index: 2;
+}
+body.edit-page .editor textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  text-align: center;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  overflow: hidden;
+  color: #fff;
+}
+body.edit-page,
+body.details-page {
+  flex-direction: row;
+}
+body.edit-page .editor,
+body.details-page .editor {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  background-color: #f4ad2c;
+  position: relative;
+}
+body.edit-page .toolbar,
+body.details-page .toolbar {
+  flex: 0 0 50px;
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+}
+body.edit-page .toolbar button,
+body.details-page .toolbar button {
+  flex: 0 0 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+}
+body.edit-page .toolbar button.previous,
+body.details-page .toolbar button.previous {
+  background-image: url('../img/previous.png');
+}
+body.edit-page .toolbar button.save,
+body.details-page .toolbar button.save {
+  background-image: url('../img/save.png');
+}
+body.edit-page .toolbar button:hover,
+body.details-page .toolbar button:hover {
+  cursor: pointer;
+  background-color: #666;
+}
+body footer {
+  flex: 0 0 50px;
+  display: flex;
+  background-color: #f4ad2c;
+  padding: 10px 15px;
+}
+body footer p {
+  align-self: center;
+}
