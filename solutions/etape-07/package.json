@@ -9,7 +9,7 @@
     "lint": "standard",
     "less": "gulp less",
     "test": "npm run lint",
-    "package": "echo \"Utiliser electron-packager pour générer l'éxécutable de votre application\""
+    "package": "echo \"TODO (Etape 8): Utiliser electron-packager pour générer l'éxécutable de votre application\""
   },
   "repository": {
     "type": "git",
