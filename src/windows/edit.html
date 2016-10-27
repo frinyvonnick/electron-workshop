@@ -10,23 +10,26 @@
 
   <link rel="stylesheet" type="text/css" href="../assets/css/index.css">
 </head>
-<body>
-  <header>
-    <h1>
-      Electron meme generator
-    </h1>
-    <p>
-      The unique, the true meme generator
-    </p>
-  </header>
-  <div id="content" class="container">
+<body class="edit-page">
+  <div class="editor">
+		<input type="text" id="title" class="title" value="Enter title here">
+    <div class="top">
+      <textarea rows="2" cols="40" name="topText"></textarea>
+    </div>
+    <div class="bottom">
+      <textarea rows="2" cols="40" name="bottomText"></textarea>
+    </div>
+		<div id="wrapper">
+      <img src="" alt=""/>
+    </div>
   </div>
-  <footer>
-    <p>Copyright 2016 - Eric briand, Yvonnick frin</p>
-  </footer>
+  <div class="toolbar">
+    <button class="previous" id="previous"></button>
+    <button class="save" id="save"></button>
+  </div>
 
-	<!-- TODO (Etape 3): `require` le script grid.js du renderer process de manière relative -->
   <script type="text/javascript">
+    require('../renderer-process/edit.js');
   </script>
-</body>
+ </body>
 </html>
