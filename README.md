@@ -67,7 +67,17 @@ Ajouter un menu contextuel pour pouvoir effacer une image
 
 ### Etape 07
 
-Ajouter des notifications
+Maintenant que nous avons la possibilité de rajouter et d'enlever des memes, nous allons émettre des notifications pour que l'utilisateur ait une confirmation de ses actions. Pour ce faire nous allons utiliser les notifications de l'API HTML5.
+
+- Ouvrir le fichier `src/renderer-process/grid.js`
+- Ajouter une notification en utilisant la classe `Notification` après l'effacement d'un meme
+- Ajouter une notification après l'enregistrement d'un meme
+
+Documentation:
+- https://notifications.spec.whatwg.org/
+- http://electron.atom.io/docs/tutorial/desktop-environment-integration/#notifications-windows-linux-macos
+
+
 
 ### Etape 08
 
@@ -81,8 +91,8 @@ Nous allons terminer l'atelier en packageant notre application. Pour cela, nous 
   - pouvoir repackager l'application même si le packaging a déjà été créé
 
 Documentation nécessaire à l'étape :
-  - https://github.com/electron-userland/electron-packager
-  - https://github.com/electron-userland/electron-packager/blob/master/usage.txt
+- https://github.com/electron-userland/electron-packager
+- https://github.com/electron-userland/electron-packager/blob/master/usage.txt
 
 ### Etape bonus
 
