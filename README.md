@@ -55,7 +55,22 @@ Le but est d'afficher la liste des memes par défaut
 
 ### Etape 04
 
-Déplacer la liste des images côté MainProcess et implémenter la communication avec le RendererProcess
+Notre application maintenant affiche une liste statique d'images. La prochaine étape va consister à récupérer la liste des memes à afficher depuis un storage. Nous allons utiliser l'IPC pour échanger des informations entre le main-process et le renderer-process.
+
+Dans le fichier `src/renderer-process/grid.js`
+- Envoyer un message `get-memes` via le module `ipcRenderer`
+- Déplacer le rendu de la galerie dans le callback appelé lors de la réception d'un message `meme-sended`
+- Utiliser les images passées en paramètre de ce callback
+
+Dans le fichier `src/main-process/grid.js`
+- Mettre en place un handler pour le message `get-memes` avec le module `ipcMain`
+- Dans le callback du handler, appeler la fonction `getMemes` qui prend un callback comme paramètre
+- Dans le callback de `getMemes`, émettre en retour un message `meme-sended` avec la liste des images fourni en paramètre
+
+Documentation nécessaire à l'étape :
+- http://electron.atom.io/docs/api/ipc-renderer/#sending-messages
+- http://electron.atom.io/docs/api/ipc-main/#listening-for-messages
+- http://electron.atom.io/docs/api/ipc-main/#sending-messages
 
 ### Etape 05
 
