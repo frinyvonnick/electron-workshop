@@ -55,11 +55,40 @@ Le but est d'afficher la liste des memes par défaut
 
 ### Etape 04
 
-Déplacer la liste des images côté MainProcess et implémenter la communication avec le RendererProcess
+Notre application maintenant affiche une liste statique d'images. La prochaine étape va consister à récupérer la liste des memes à afficher depuis un storage. Nous allons utiliser l'IPC pour échanger des informations entre le main-process et le renderer-process.
+
+Dans le fichier `src/renderer-process/grid.js`
+- Envoyer un message `get-memes` via le module `ipcRenderer`
+- Déplacer le rendu de la galerie dans le callback appelé lors de la réception d'un message `meme-sended`
+- Utiliser les images passées en paramètre de ce callback
+
+Dans le fichier `src/main-process/grid.js`
+- Mettre en place un handler pour le message `get-memes` avec le module `ipcMain`
+- Dans le callback du handler, appeler la fonction `getMemes` qui prend un callback comme paramètre
+- Dans le callback de `getMemes`, émettre en retour un message `meme-sended` avec la liste des images fourni en paramètre
+
+Documentation nécessaire à l'étape :
+- http://electron.atom.io/docs/api/ipc-renderer/#sending-messages
+- http://electron.atom.io/docs/api/ipc-main/#listening-for-messages
+- http://electron.atom.io/docs/api/ipc-main/#sending-messages
 
 ### Etape 05
 
-Le but est d'utiliser l'API fileDialog pour aller chercher une image à ajouter dans l'application
+Maintenant que nous avons une liste prédéfinie, nous allons donner la possibilité à l'utilisateur de rajouter l'image de son choix via une file dialog.
+
+Dans le fichier `src/renderer-process/grid.js`
+- Ajouter un event listener `click` sur l'élément avec l'id `new-meme`
+- Dans cet event listener, émettre un événement `open-file-dialog` avec l'IPC
+
+Dans le fichier `src/main-process/grid.js`
+- Dans celui-ci, importer le module `dialog` depuis `electron`
+- Déclarer l'event handler `open-file-dialog`
+- En réponse à cet event, afficher une `dialog` qui va lister seulement les fichiers images (extensions jpg, gif, png)
+- Implementer un callback qui va appeler la fonction `newEditWindow` avec le fichier choisi par l'utilisateur
+- Gérer l'événement `closed` en renvoyant la liste à jour de meme
+
+Documentation nécessaire à l'étape :
+- http://electron.atom.io/docs/api/dialog/
 
 ### Etape 06
 
