@@ -1,5 +1,7 @@
-const { remote, ipcRenderer } = require('electron')
-const { Menu, MenuItem } = remote
+const { ipcRenderer } = require('electron')
+// TODO (Etape 6): Importer remote depuis electron
+// TODO (Etape 6): Importer Menu et MenuItem depuis le module remote
+const path = require('path')
 
 ipcRenderer.send('get-memes')
 
@@ -23,14 +25,17 @@ ipcRenderer.on('memes-sended', (e, images) => {
   for (var i = 0; i < elements.length; i++) {
     const element = elements[i]
 
-    // Gère le menu contextuel sur un meme
-    element.addEventListener('contextmenu', e => {
-      e.preventDefault()
-      let menu = new Menu()
-      menu.append(new MenuItem({label: 'Save as', click (item, browserWindow) { ipcRenderer.send('save-from-grid', images[parseInt(element.getAttribute('data-index'), 10)].path) }}))
-      menu.append(new MenuItem({label: 'Delete', click (item, browserWindow) { ipcRenderer.send('delete-selected-meme', images[parseInt(element.getAttribute('data-index'), 10)]) }}))
-      menu.popup(remote.getCurrentWindow())
-    })
+    // TODO (Etape 6): Mettre en place l'event listener 'contextmenu'.
+		// N'oubliez pas de prévenir l'évènement par défaut
+		// Instancier un nouvel objet de type Menu
+
+		// A l'aide de la méthode append de l'objet menu ajouter des nouvelles instances de MenuItem
+		// Un premier élement Save as qui au click appelle l'instruction suivante :
+		// ipcRenderer.send('save-from-grid', images[parseInt(element.getAttribute('data-index'), 10)].path)
+		// Un premier élement Delete qui au click appelle l'instruction suivante :
+		// ipcRenderer.send('delete-selected-meme', images[parseInt(element.getAttribute('data-index'), 10)])
+
+		// Puis rattacher le menu à la fenêtre courante grâce à la méthode popup
 
     // Gère l'ouverture de la fenètre de détails
     element.addEventListener('click', e => {
@@ -42,16 +47,14 @@ ipcRenderer.on('memes-sended', (e, images) => {
 ipcRenderer.on('meme-deleted', () => {
   ipcRenderer.send('get-memes', {})
 
-  const notification = new Notification('Meme Generator', {
-    body: 'Le meme a bien été supprimé'
-  })
-  notification()
+  // TODO (Etape 7): Faites une notification qui informe l'utilisateur
+	// que le meme a bien été supprimé
 })
 
 ipcRenderer.on('saved-file-grid', function (event, path) {
   if (!path) path = 'No path'
-  const notification = new Notification('Meme Generator', {
-    body: `Le meme a été sauvegardé à l'emplacement ${path}`
-  })
-  notification()
+
+	// TODO (Etape 7): Faites une notification qui informe l'utilisateur
+	// que le meme a bien été sauvegardé à l'emplacement
+	// contenu dans la varialbe path
 })

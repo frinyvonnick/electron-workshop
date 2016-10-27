@@ -1,7 +1,6 @@
-const { ipcMain, BrowserWindow, dialog } = require('electron')
+const { ipcMain, dialog } = require('electron')
 const { getMemes, deleteMeme } = require('../assets/storage.js')
 const { newEditWindow } = require('./edit.js')
-const path = require('path')
 const fs = require('fs')
 
 ipcMain.on('get-memes', (e) => {
@@ -17,11 +16,11 @@ ipcMain.on('open-file-dialog', (event) => {
   }, (files) => {
     if (files) {
       const editWindow = newEditWindow(files[0])
-			editWindow.on('closed', () => {
-				getMemes(memes => {
-			    event.sender.send('memes-sended', memes)
-			  })
-			})
+      editWindow.on('closed', () => {
+        getMemes(memes => {
+          event.sender.send('memes-sended', memes)
+        })
+      })
     }
   })
 })

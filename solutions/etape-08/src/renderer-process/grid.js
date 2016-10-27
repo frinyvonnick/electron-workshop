@@ -1,6 +1,5 @@
 const { remote, ipcRenderer } = require('electron')
 const { Menu, MenuItem } = remote
-const path = require('path')
 
 ipcRenderer.send('get-memes')
 
