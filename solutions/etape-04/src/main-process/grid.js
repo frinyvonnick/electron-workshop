@@ -1,4 +1,5 @@
-const { ipcMain, dialog } = require('electron')
+// TODO (Etape 5): Importer le module dialog de electron
+const { ipcMain } = require('electron')
 const { getMemes, deleteMeme } = require('../assets/storage.js')
 const { newEditWindow } = require('./edit.js')
 const fs = require('fs')
@@ -9,21 +10,18 @@ ipcMain.on('get-memes', (e) => {
   })
 })
 
-ipcMain.on('open-file-dialog', (event) => {
-  dialog.showOpenDialog({
-    properties: ['openFile'],
-    filters: [{ name: 'Images', extensions: ['jpg', 'png', 'gif'] }]
-  }, (files) => {
-    if (files) {
-      const editWindow = newEditWindow(files[0])
-      editWindow.on('closed', () => {
-        getMemes(memes => {
-          event.sender.send('memes-sended', memes)
-        })
-      })
-    }
-  })
-})
+// TODO (Etape 5): Mettre en place un event handler pour l'évènement 'open-file-dialog'
+// Utiliser la méthode showOpenDialog pour créer une nouvelle fenêtre de
+// dialogue avec les options suivantes :
+// - la propriété openFile
+// - un filtre appelé Images avec les extensions jpg, png, gif
+// Un paramètre contenant la liste des fichiers selectionnés vous est fourni
+// en paramètre du callback.
+// Utiliser la fonction newEditWindow pour créer une nouvelle fenêtre qui
+// prend en paramètre le path d'un fichier.
+// Mettre en place un event handler pour l'évènement 'closed' de cette
+// nouvelle fenêtre et éxécuter l'instruction suivante dans son callback :
+// getMemes(memes => event.sender.send('memes-sended', memes))
 
 const saveDialog = (event, meme, window) => {
   const options = {

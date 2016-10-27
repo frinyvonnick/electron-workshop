@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Electron meme generator</title>
+
+  <!-- import font -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,900italic,900,700italic,700,100,100italic,300,300italic,400italic,500,500italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" type="text/css" href="../assets/css/index.css">
+</head>
+<body class="details-page">
+  <div class="editor">
+    <img id="meme" src="" alt=""/>
+  </div>
+  <div class="toolbar">
+    <button class="previous" id="previous"></button>
+  </div>
+
+  <script type="text/javascript">
+    require('../renderer-process/detail.js');
+    // Livereload
+    require('../assets/client.js');
+  </script>
+ </body>
+</html>

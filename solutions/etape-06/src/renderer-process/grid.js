@@ -1,6 +1,5 @@
 const { remote, ipcRenderer } = require('electron')
 const { Menu, MenuItem } = remote
-const path = require('path')
 
 ipcRenderer.send('get-memes')
 
@@ -9,7 +8,7 @@ ipcRenderer.on('memes-sended', (e, images) => {
     return `${prev}
     <div class="card meme" data-index="${index}">
     <div class="img" style="background-image:url('${next.path.split('\\').join('\\\\')}')"></div>
-    <h3 title="${next.title}"><span>${next.title}</span></h3>
+		<h3 title="${next.title}"><span>${next.title}</span></h3>
     </div>`
   }, '')
 
