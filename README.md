@@ -47,11 +47,26 @@ Documentation nécessaire à l'étape :
 
 ### Etape 02
 
-Le but est de découvrir l'API BrowserWindow
+Maintenant que notre application electron affiche une première fenêtre, nous vous proposons de changer l'affichage avec différentes options. Nous allons aussi exploiter la capacité de live-reloading du module `electron-connect`.
+
+- Démarrer l'application en lançant `npm run dev`, l'application va démarrer en mode dev avec du live-reloading
+- Changer la taille de la fenêtre dans le fichier `src/main.js`
+- Enlever les bordures de la fenêtre
+- Ouvrir par défaut les devTools via `mainWindow.webContents.openDevTools()`
+
+Documentation nécessaire à l'étape :
+- https://github.com/Quramy/electron-connect
+- http://electron.atom.io/docs/api/browser-window/
 
 ### Etape 03
 
-Le but est d'afficher la liste des memes par défaut
+Nous allons maintenant afficher dans notre fenêtre la galerie de meme.
+
+Dans le fichier `src/main.js`
+- Changer le fichier HTML chargé dans la mainWindow par le fichier `windows/index.html`
+
+Dans le fichier `src/windows/index.html`
+- Require le fichier `src/renderer-process/grid.js` de manière relative à `index.html` dans la balise `<script>`
 
 ### Etape 04
 
@@ -117,8 +132,6 @@ Maintenant que nous avons la possibilité de rajouter et d'enlever des memes, no
 Documentation nécessaire à l'étape :
 - https://notifications.spec.whatwg.org/
 - http://electron.atom.io/docs/tutorial/desktop-environment-integration/#notifications-windows-linux-macos
-
-
 
 ### Etape 08
 
