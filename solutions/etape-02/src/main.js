@@ -14,7 +14,7 @@ app.on('ready', () => {
 
   // and load the index.html of the app.
   // TODO (Etape 3): Changer le fichier html cible par index.html
-  mainWindow.loadURL(path.join('file://', __dirname, 'windows/index.html'))
+  mainWindow.loadURL(path.join('file://', __dirname, 'windows/hello.html'))
 
   // Hot reload
   if (/--debug/.test(process.argv.join(' '))) {
