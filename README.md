@@ -26,7 +26,7 @@ src
 
 Afin de mettre en oeuvre les concepts d'electron vus dans le cours, nous vous proposons de développer une application de meme generator.
 
-Nous partirons d'un squelette de projet electron simple, qui sera enrichie au fur et à mesure des étapes. Le résultat final sera une application desktop multi fenêtré, avec des interactions et comportements d'une application desktop moderne.
+Nous partirons d'un squelette de projet electron simple, qui sera enrichie au fur et à mesure des étapes. Le résultat final sera une application desktop multi-fenêtré, avec des interactions et comportements d'une application desktop moderne.
 
 Le squelette est composé de tous les fichiers de l'application. Vous n'aurez qu'à compléter ces fichiers.
 
@@ -36,11 +36,11 @@ Nous allons commencer par démarrer notre application electron en affichant une 
 
 - Ouvrez le fichier `src/main.js`
 - Importez les dépendances `app` et `BrowserWindow` depuis electron
-- Sur l'évenement `ready` de app, instancier une nouvelle `BrowserWindow`
+- Sur l'événement `ready` de app, instancier une nouvelle `BrowserWindow`
 - Chargez le fichier `index.html` dans votre fenêtre nouvellement créée
-- Démarrez votre application en executant `npm start`
+- Démarrez votre application en executant `./node_modules/.bin/electron .`
 
-Documentation nécéssaire à l'étape :
+Documentation nécessaire à l'étape :
  - http://electron.atom.io/docs/api/app/
  - http://electron.atom.io/docs/api/browser-window/
 
