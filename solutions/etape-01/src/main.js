@@ -13,8 +13,8 @@ app.on('ready', () => {
   // TODO (Etape 2): Essayez :
   // - Changer la taille de la fenêtre
   // - Enlever les bordures
-  // - Ouvrir les devtools au démarrage
-  mainWindow = new BrowserWindow({ width: 1000, height: 800 })
+  // - Ouvrir les devtools au démarrage grâce à la propriété webContents
+  mainWindow = new BrowserWindow()
 
   // and load the index.html of the app.
   // TODO (Etape 3): Changer le fichier html cible par index.html
