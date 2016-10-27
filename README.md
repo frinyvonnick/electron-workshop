@@ -47,7 +47,16 @@ Documentation nécessaire à l'étape :
 
 ### Etape 02
 
-Le but est de découvrir l'API BrowserWindow
+Maintenant que notre application electron affiche une première fenêtre, nous vous proposons de changer l'affichage avec différentes options. Nous allons aussi exploiter la capacité de live-reloading du module `electron-connect`.
+
+- Démarrer l'application en lançant `npm run dev`, l'application va démarrer en mode dev avec du live-reloading
+- Changer la taille de la fenêtre dans le fichier `src/main.js`
+- Enlever les bordures de la fenêtre
+- Ouvrir par défaut les devTools via `mainWindow.webContents.openDevTools()`
+
+Documentation nécessaire à l'étape :
+- https://github.com/Quramy/electron-connect
+- http://electron.atom.io/docs/api/browser-window/
 
 ### Etape 03
 
