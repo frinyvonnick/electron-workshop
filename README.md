@@ -35,7 +35,7 @@ Le squelette est composé de tous les fichiers de l'application. Vous n'aurez qu
 Nous allons commencer par démarrer notre application electron en affichant une première page statique.
 
 - Ouvrir le fichier `src/main.js`
-- Importer les dépendances `app` et `BrowserWindow` depuis electron
+- Importer les dépendances `app` et `BrowserWindow` depuis `electron`
 - Sur l'événement `ready` de app, instancier une nouvelle `BrowserWindow`
 - Charger le fichier `index.html` dans votre fenêtre nouvellement créée
 - Démarrer votre application en executant `./node_modules/.bin/electron .`
@@ -63,7 +63,19 @@ Le but est d'utiliser l'API fileDialog pour aller chercher une image à ajouter 
 
 ### Etape 06
 
-Ajouter un menu contextuel pour pouvoir effacer une image
+A cette étape, nous allons rajouter un menu contextuel pour effacer et sauvegarder chacune des images de la galerie de meme. Nous allons utiliser les classes de menu présentes dans electron.
+
+- Ouvrir le fichier `src/renderer-process/grid.js`
+- Importer le module `remote` depuis le module `electron` pour pouvoir accéder à l'API du main process
+- Importer les classes `Menu` et `MenuItem` depuis `remote`
+- Ajouter un event listener `contextmenu` sur chacun des elements de la galerie
+- Créer un menu contextuel avec comme items :
+ - `Save as` qui enverra un message `save-from-grid` sur l'IPC
+ - `Delete` qui enverra un message `deleted-selected-meme` sur l'IPC
+
+Documentation nécessaire à l'étape :
+- http://electron.atom.io/docs/api/menu/#render-process
+- http://electron.atom.io/docs/api/menu-item/
 
 ### Etape 07
 
@@ -73,7 +85,7 @@ Maintenant que nous avons la possibilité de rajouter et d'enlever des memes, no
 - Ajouter une notification en utilisant la classe `Notification` après l'effacement d'un meme
 - Ajouter une notification après l'enregistrement d'un meme
 
-Documentation:
+Documentation nécessaire à l'étape :
 - https://notifications.spec.whatwg.org/
 - http://electron.atom.io/docs/tutorial/desktop-environment-integration/#notifications-windows-linux-macos
 
