@@ -3,7 +3,7 @@ const image = require('./image')
 const path = require('path')
 
 const addMeme = (title, memePath, callback) => {
-	const memeName = path.basename(memePath)
+  const memeName = path.basename(memePath)
   storage.get('memes', (error, data) => {
     if (error) throw error
 
@@ -21,14 +21,14 @@ const addMeme = (title, memePath, callback) => {
 exports.addMeme = addMeme
 
 exports.deleteMeme = (selectedMeme, callback) => {
-	getMemes(memes => {
-		storage.set('memes', memes.filter(meme => {
-			return !(meme.title == selectedMeme.title && meme.path == selectedMeme.path)
-		}), (error) => {
+  getMemes(memes => {
+    storage.set('memes', memes.filter(meme => {
+      return !(meme.title === selectedMeme.title && meme.path === selectedMeme.path)
+    }), (error) => {
       if (error) throw error
       callback()
     })
-	})
+  })
 }
 
 const getMemes = (callback) => {
@@ -46,14 +46,13 @@ exports.initWithDefaultsMemes = (defaultMemes) => {
 }
 
 exports.saveMeme = (newMeme, title, texts, callback) => {
-	getMemes((memes) => {
-		image.saveimage(newMeme, texts, (memePath, error) => {
+  getMemes((memes) => {
+    image.saveimage(newMeme, texts, (memePath, error) => {
       if (error) throw error
       addMeme(title, memePath, (error) => {
-				console.log('ERROR', error)
         if (error) throw error
         callback()
       })
     })
-	})
+  })
 }

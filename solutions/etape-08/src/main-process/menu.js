@@ -14,7 +14,7 @@ const template = [
         }, (files) => {
           if (files) {
             const editWindow = newEditWindow(files[0])
-            editWindow.on('close', () => editWindow = null)
+            editWindow.on('close', () => browserWindow.webContents.send('selected-files'))
           }
         })
       }

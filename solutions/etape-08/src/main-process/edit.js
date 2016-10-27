@@ -19,7 +19,6 @@ ipcMain.on('get-new-meme', (e) => e.sender.send('new-meme-sended', newMeme))
 
 ipcMain.on('save-meme', (e, { memePath ,title, texts }) => {
   saveMeme(memePath, title, texts, () => {
-		console.log('MEME SAVED')
     e.sender.send('meme-saved')
   })
 })
