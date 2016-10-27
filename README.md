@@ -34,11 +34,11 @@ Le squelette est composé de tous les fichiers de l'application. Vous n'aurez qu
 
 Nous allons commencer par démarrer notre application electron en affichant une première page statique.
 
-- Ouvrez le fichier `src/main.js`
-- Importez les dépendances `app` et `BrowserWindow` depuis electron
+- Ouvrir le fichier `src/main.js`
+- Importer les dépendances `app` et `BrowserWindow` depuis electron
 - Sur l'événement `ready` de app, instancier une nouvelle `BrowserWindow`
-- Chargez le fichier `index.html` dans votre fenêtre nouvellement créée
-- Démarrez votre application en executant `./node_modules/.bin/electron .`
+- Charger le fichier `index.html` dans votre fenêtre nouvellement créée
+- Démarrer votre application en executant `./node_modules/.bin/electron .`
 
 Documentation nécessaire à l'étape :
  - http://electron.atom.io/docs/api/app/
@@ -71,7 +71,18 @@ Ajouter des notifications
 
 ### Etape 08
 
-Ajouter le packaging de l'application
+Nous allons terminer l'atelier en packageant notre application. Pour cela, nous allons utiliser electron-packager qui est maintenu par la communauté.
+
+- Ouvrir le fichier `package.json`
+- Ajouter un npm script `package` qui va appeler electron-packager
+- Ajouter les options pour :
+  - cibler votre plateforme et son architecture
+  - ignorer les dépendances de développement
+  - pouvoir repackager l'application même si le packaging a déjà été créé
+
+Documentation nécessaire à l'étape :
+  - https://github.com/electron-userland/electron-packager
+  - https://github.com/electron-userland/electron-packager/blob/master/usage.txt
 
 ### Etape bonus
 
