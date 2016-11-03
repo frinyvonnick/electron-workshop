@@ -3,15 +3,13 @@ const path = require('path')
 const { saveMeme } = require('../assets/storage')
 
 let editWindow
-let sender
 
-exports.newEditWindow = (filePath, initialSender) => {
-  sender = initialSender
+exports.newEditWindow = (filePath) => {
   const modalPath = path.join('file://', __dirname, '../windows/edit.html#', encodeURIComponent(filePath))
   editWindow = new BrowserWindow({ width: 1000, height: 800 })
   editWindow.loadURL(modalPath)
   editWindow.show()
-  editWindow.on('closed', () => editWindow = null)
+  editWindow.on('closed', () => { editWindow = null })
   return editWindow
 }
 

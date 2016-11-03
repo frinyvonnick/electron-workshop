@@ -41,17 +41,17 @@ const images = [
 // message 'memes-sended'
 document.getElementById('content').innerHTML = images.reduce((prev, next, index) => {
   return `${prev}
-	<div class="card meme" data-index="${index}">
-	<div class="img" style="background-image:url('${next.path.split('\\').join('\\\\')}')"></div>
-	<h3 title="${next.title}"><span>${next.title}</span></h3>
-	</div>`
+  <div class="card meme" data-index="${index}">
+  <div class="img" style="background-image:url('${next.path.split('\\').join('\\\\')}')"></div>
+  <h3 title="${next.title}"><span>${next.title}</span></h3>
+  </div>`
 }, '')
 
 ipcRenderer.on('memes-sended', (e, images) => {
   document.getElementById('content').innerHTML += `<div class="card" id="new-meme">
-	<div class="img"></div>
-	<h3><span>New</span></h3>
-	</div>`
+  <div class="img"></div>
+  <h3><span>New</span></h3>
+  </div>`
 
   // TODO (Etape 5): Mettre en place l'event listener 'click' sur l'élément
   // HTML id 'new-meme' qui va émettre l'évènement 'open-file-dialog' avec l'IPC

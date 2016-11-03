@@ -28,7 +28,7 @@ gulp.task('less', () => {
   gulp.watch([
     './src/assets/**/*.less'
   ], () => {
-		console.log('compile less files')
+    console.log('compile less files')
     gulp.src('./src/assets/less/index.less')
       .pipe(less())
       .pipe(gulp.dest('./src/assets/css'))

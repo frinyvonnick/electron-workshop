@@ -1,9 +1,9 @@
 const { remote, ipcRenderer } = require('electron')
 const { setTextareasPosition, limitTextarea } = require('../assets/textareas')
-const { computeCoef, computeHeight, computeFont } = require('../assets/compute')
+const { computeCoef, computeHeight } = require('../assets/compute')
 const path = require('path')
 
-const filePath = decodeURIComponent(window.location.hash.slice(1));
+const filePath = decodeURIComponent(window.location.hash.slice(1))
 const memePath = path.join('file://', filePath)
 
 // Tableau contenant les informations relatives aux deux textareas
@@ -27,17 +27,15 @@ const img = editor.getElementsByTagName('img')[0]
 
 // On receptionne les informations du template selectionné
 img.onload = () => {
-	let wrapperRect = wrapper.getBoundingClientRect()
-	const fontSize = computeFont(1024, wrapperRect.width)
+  let wrapperRect = wrapper.getBoundingClientRect()
 
-	// On va cropper l'image pour qu'elle rentre dans le format d'image choisi
-	// On calcule la hauteur du wrapper par rapport à sa largeur
-	const wrapperHeight = parseInt(computeHeight(wrapperRect.width, computeCoef(16, 9)), 10)
-	wrapper.style.height = wrapperHeight + 'px'
-	wrapperRect = wrapper.getBoundingClientRect()
-	// On centre l'image verticalement dans le wrapper
-	img.style.top = parseInt((wrapperRect.height - img.getBoundingClientRect().height) / 2, 10) + 'px'
-
+  // On va cropper l'image pour qu'elle rentre dans le format d'image choisi
+  // On calcule la hauteur du wrapper par rapport à sa largeur
+  const wrapperHeight = parseInt(computeHeight(wrapperRect.width, computeCoef(16, 9)), 10)
+  wrapper.style.height = wrapperHeight + 'px'
+  wrapperRect = wrapper.getBoundingClientRect()
+  // On centre l'image verticalement dans le wrapper
+  img.style.top = parseInt((wrapperRect.height - img.getBoundingClientRect().height) / 2, 10) + 'px'
 
   setTextareasPosition(textareas, editor.getBoundingClientRect().width, wrapper.getBoundingClientRect())
   // On initialise le contenu des textareas
@@ -74,7 +72,7 @@ document.getElementById('previous').onclick = () => remote.getCurrentWindow().cl
 // Action effectuée au click sur le bouton save
 document.getElementById('save').onclick = () => {
   ipcRenderer.send('save-meme', {
-		memePath: filePath,
+    memePath: filePath,
     title: document.getElementById('title').value,
     texts: textareas.map((t) => {
       return {
@@ -91,7 +89,9 @@ ipcRenderer.on('meme-saved', () => {
     body: 'Le meme a bien été sauvegardé'
   })
 
-	setTimeout(() => {
-		remote.getCurrentWindow().close()
-	}, 100)
+  notification()
+
+  setTimeout(() => {
+    remote.getCurrentWindow().close()
+  }, 100)
 })

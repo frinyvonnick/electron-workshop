@@ -8,7 +8,7 @@ ipcRenderer.on('memes-sended', (e, images) => {
     return `${prev}
     <div class="card meme" data-index="${index}">
     <div class="img" style="background-image:url('${next.path.split('\\').join('\\\\')}')"></div>
-		<h3 title="${next.title}"><span>${next.title}</span></h3>
+    <h3 title="${next.title}"><span>${next.title}</span></h3>
     </div>`
   }, '')
 
@@ -43,13 +43,13 @@ ipcRenderer.on('meme-deleted', () => {
   ipcRenderer.send('get-memes', {})
 
   // TODO (Etape 7): Faites une notification qui informe l'utilisateur
-	// que le meme a bien été supprimé
+  // que le meme a bien été supprimé
 })
 
 ipcRenderer.on('saved-file-grid', function (event, path) {
   if (!path) path = 'No path'
 
-	// TODO (Etape 7): Faites une notification qui informe l'utilisateur
-	// que le meme a bien été sauvegardé à l'emplacement
-	// contenu dans la varialbe path
+  // TODO (Etape 7): Faites une notification qui informe l'utilisateur
+  // que le meme a bien été sauvegardé à l'emplacement
+  // contenu dans la varialbe path
 })
