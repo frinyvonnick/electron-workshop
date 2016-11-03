@@ -163,4 +163,16 @@ Documentation nécessaire à l'étape :
 
 ### Etape bonus
 
-Tester le lancement de l'application
+Pour ceux qui veulent aller plus loin, vous pouvez rajouter des tests.
+
+- Ouvrir le fichier `src\tests\index.js`
+- Rajouter les tests suivant :
+  - l'application n'ouvre qu'une fenêtre au lancement
+  - le titre de la fenêtre est bien `Electron meme generator`
+  - la taille de la fenêtre est bien celle que vous avez précisé au lancement
+  - l'application affiche au moins un meme (element HTML de classe `meme`)
+
+Documentation nécessaire à l'étape :
+- https://github.com/electron/spectron#clientgetwindowcount
+- https://github.com/electron/spectron#browserwindow
+- https://github.com/electron/spectron#client

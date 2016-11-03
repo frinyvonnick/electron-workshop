@@ -8,7 +8,7 @@
     "dev": "gulp --debug",
     "lint": "standard",
     "less": "gulp less",
-    "test": "npm run lint",
+    "test": "mocha src/tests && npm run lint",
     "package": "echo \"TODO (Etape 8): Utiliser electron-packager pour générer l'éxécutable de votre application\""
   },
   "repository": {
@@ -36,6 +36,8 @@
     "glob": "7.0.5"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
     "devtron": "1.1.0",
     "electron": "1.4.2",
     "electron-connect": "0.6.0",
@@ -43,15 +45,14 @@
     "gulp": "3.9.1",
     "gulp-less": "3.1.0",
     "less": "2.7.1",
+    "mocha": "^3.1.2",
+    "spectron": "3.4.0",
     "standard": "8.2.0"
   },
   "standard": {
     "globals": [
       "Notification"
-    ],
-    "env": {
-      "mocha": true
-    }
+    ]
   },
   "license": "MIT",
   "bugs": {
