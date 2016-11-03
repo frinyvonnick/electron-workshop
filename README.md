@@ -44,6 +44,7 @@ Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/app/
 - http://electron.atom.io/docs/api/browser-window/
 
+![Capture de l'application à l'étape 01](screenshots/etape-01.png)Etat de l'application à la fin de l'étape
 
 ### Etape 02
 
@@ -58,6 +59,8 @@ Documentation nécessaire à l'étape :
 - https://github.com/Quramy/electron-connect
 - http://electron.atom.io/docs/api/browser-window/
 
+![Capture de l'application à l'étape 02](screenshots/etape-02.png)Etat de l'application à la fin de l'étape
+
 ### Etape 03
 
 Nous allons maintenant afficher dans notre fenêtre la galerie de meme.
@@ -67,6 +70,8 @@ Dans le fichier `src/main.js`
 
 Dans le fichier `src/windows/index.html`
 - Require le fichier `src/renderer-process/grid.js` de manière relative à `index.html` dans la balise `<script>`
+
+![Capture de l'application à l'étape 03](screenshots/etape-03.png)Etat de l'application à la fin de l'étape
 
 ### Etape 04
 
@@ -87,6 +92,8 @@ Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/ipc-main/#listening-for-messages
 - http://electron.atom.io/docs/api/ipc-main/#sending-messages
 
+![Capture de l'application à l'étape 04](screenshots/etape-04.png)Etat de l'application à la fin de l'étape
+
 ### Etape 05
 
 Maintenant que nous avons une liste prédéfinie, nous allons donner la possibilité à l'utilisateur de rajouter l'image de son choix via une file dialog.
@@ -105,6 +112,8 @@ Dans le fichier `src/main-process/grid.js`
 Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/dialog/
 
+![Capture de l'application à l'étape 05](screenshots/etape-05.png)Etat de l'application à la fin de l'étape
+
 ### Etape 06
 
 A cette étape, nous allons rajouter un menu contextuel pour effacer et sauvegarder chacune des images de la galerie de meme. Nous allons utiliser les classes de menu présentes dans electron.
@@ -121,6 +130,8 @@ Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/menu/#render-process
 - http://electron.atom.io/docs/api/menu-item/
 
+![Capture de l'application à l'étape 06](screenshots/etape-06.png)Etat de l'application à la fin de l'étape
+
 ### Etape 07
 
 Maintenant que nous avons la possibilité de rajouter et d'enlever des memes, nous allons émettre des notifications pour que l'utilisateur ait une confirmation de ses actions. Pour ce faire nous allons utiliser les notifications de l'API HTML5.
@@ -132,6 +143,8 @@ Maintenant que nous avons la possibilité de rajouter et d'enlever des memes, no
 Documentation nécessaire à l'étape :
 - https://notifications.spec.whatwg.org/
 - http://electron.atom.io/docs/tutorial/desktop-environment-integration/#notifications-windows-linux-macos
+
+![Capture de l'application à l'étape 07](screenshots/etape-07.png)Etat de l'application à la fin de l'étape
 
 ### Etape 08
 
