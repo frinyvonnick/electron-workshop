@@ -30,7 +30,7 @@ Nous partirons d'un squelette de projet electron simple, qui sera enrichie au fu
 
 Le squelette est composé de tous les fichiers de l'application. Vous n'aurez qu'à compléter ces fichiers.
 
-### Etape 01
+### Etape 01 : Hello world!
 
 Nous allons commencer par démarrer notre application electron en affichant une première page statique.
 
@@ -46,7 +46,7 @@ Documentation nécessaire à l'étape :
 
 ![Capture de l'application à l'étape 01](screenshots/etape-01.png)Etat de l'application à la fin de l'étape
 
-### Etape 02
+### Etape 02 : Customizer la fenêtre
 
 Maintenant que notre application electron affiche une première fenêtre, nous vous proposons de changer l'affichage avec différentes options. Nous allons aussi exploiter la capacité de live-reloading du module `electron-connect`.
 
@@ -61,7 +61,7 @@ Documentation nécessaire à l'étape :
 
 ![Capture de l'application à l'étape 02](screenshots/etape-02.png)Etat de l'application à la fin de l'étape
 
-### Etape 03
+### Etape 03 : Affichage de la liste des memes
 
 Nous allons maintenant afficher dans notre fenêtre la galerie de meme.
 
@@ -71,9 +71,10 @@ Dans le fichier `src/main.js`
 Dans le fichier `src/windows/index.html`
 - Require le fichier `src/renderer-process/grid.js` de manière relative à `index.html` dans la balise `<script>`
 
+
 ![Capture de l'application à l'étape 03](screenshots/etape-03.png)Etat de l'application à la fin de l'étape
 
-### Etape 04
+### Etape 04 : Communication IPC
 
 Notre application maintenant affiche une liste statique d'images. La prochaine étape va consister à récupérer la liste des memes à afficher depuis un storage. Nous allons utiliser l'IPC pour échanger des informations entre le main-process et le renderer-process.
 
@@ -94,7 +95,7 @@ Documentation nécessaire à l'étape :
 
 ![Capture de l'application à l'étape 04](screenshots/etape-04.png)Etat de l'application à la fin de l'étape
 
-### Etape 05
+### Etape 05 : File dialog
 
 Maintenant que nous avons une liste prédéfinie, nous allons donner la possibilité à l'utilisateur de rajouter l'image de son choix via une file dialog.
 
@@ -114,14 +115,14 @@ Documentation nécessaire à l'étape :
 
 ![Capture de l'application à l'étape 05](screenshots/etape-05.png)Etat de l'application à la fin de l'étape
 
-### Etape 06
+### Etape 06 : Menu contextuel
 
 A cette étape, nous allons rajouter un menu contextuel pour effacer et sauvegarder chacune des images de la galerie de meme. Nous allons utiliser les classes de menu présentes dans electron.
 
 - Ouvrir le fichier `src/renderer-process/grid.js`
 - Importer le module `remote` depuis le module `electron` pour pouvoir accéder à l'API du main process
 - Importer les classes `Menu` et `MenuItem` depuis `remote`
-- Ajouter un event listener `contextmenu` sur chacun des elements de la galerie
+- Ajouter un event listener `contextmenu` sur chacun des élements de la galerie
 - Créer un menu contextuel avec comme items :
  - `Save as` qui enverra un message `save-from-grid` sur l'IPC
  - `Delete` qui enverra un message `deleted-selected-meme` sur l'IPC
@@ -132,7 +133,7 @@ Documentation nécessaire à l'étape :
 
 ![Capture de l'application à l'étape 06](screenshots/etape-06.png)Etat de l'application à la fin de l'étape
 
-### Etape 07
+### Etape 07 : Notifications
 
 Maintenant que nous avons la possibilité de rajouter et d'enlever des memes, nous allons émettre des notifications pour que l'utilisateur ait une confirmation de ses actions. Pour ce faire nous allons utiliser les notifications de l'API HTML5.
 
@@ -146,7 +147,7 @@ Documentation nécessaire à l'étape :
 
 ![Capture de l'application à l'étape 07](screenshots/etape-07.png)Etat de l'application à la fin de l'étape
 
-### Etape 08
+### Etape 08 : Packaging
 
 Nous allons terminer l'atelier en packageant notre application. Pour cela, nous allons utiliser electron-packager qui est maintenu par la communauté.
 
@@ -161,7 +162,7 @@ Documentation nécessaire à l'étape :
 - https://github.com/electron-userland/electron-packager
 - https://github.com/electron-userland/electron-packager/blob/master/usage.txt
 
-### Etape bonus
+### Etape bonus : Testing
 
 Pour ceux qui veulent aller plus loin, vous pouvez rajouter des tests.
 
