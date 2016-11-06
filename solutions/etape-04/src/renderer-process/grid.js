@@ -28,7 +28,7 @@ ipcRenderer.on('memes-sended', (e, images) => {
 
     // TODO (Etape 6): Mettre en place l'event listener 'contextmenu'.
     // N'oubliez pas de prévenir l'évènement par défaut
-    // Instancier un nouvel objet de type Menu
+    // Dans le callback de l'event listener, instancier un nouvel objet de type Menu
 
     // A l'aide de la méthode append de l'objet menu ajouter des nouvelles instances de MenuItem
     // Un premier élement Save as qui au click appelle l'instruction suivante :

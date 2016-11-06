@@ -123,7 +123,7 @@ A cette étape, nous allons rajouter un menu contextuel pour effacer et sauvegar
 - Importer le module `remote` depuis le module `electron` pour pouvoir accéder à l'API du main process
 - Importer les classes `Menu` et `MenuItem` depuis `remote`
 - Ajouter un event listener `contextmenu` sur chacun des élements de la galerie
-- Créer un menu contextuel avec comme items :
+- Créer un menu contextuel dans le callback de l'event listener avec comme items :
  - `Save as` qui enverra un message `save-from-grid` sur l'IPC
  - `Delete` qui enverra un message `deleted-selected-meme` sur l'IPC
 
