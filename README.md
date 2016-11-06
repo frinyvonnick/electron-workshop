@@ -44,6 +44,19 @@ Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/app/
 - http://electron.atom.io/docs/api/browser-window/
 
+<details>
+<summary>Solution</summary>
+Dans le fichier `src/main.js`
+```
+  const { app, BrowserWindow } = require('electron')
+  const path = require('path')
+```
+```
+  mainWindow = new BrowserWindow()
+  mainWindow.loadURL(path.join('file://', __dirname, 'windows/hello.html'))
+```
+</details>
+
 ![Capture de l'application à l'étape 01](screenshots/etape-01.png)Etat de l'application à la fin de l'étape
 
 ### Etape 02 : Customizer la fenêtre
