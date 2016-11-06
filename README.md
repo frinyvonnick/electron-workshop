@@ -171,7 +171,7 @@ Pour ceux qui veulent aller plus loin, vous pouvez rajouter des tests.
   - l'application n'ouvre qu'une fenêtre au lancement
   - le titre de la fenêtre est bien `Electron meme generator`
   - la taille de la fenêtre est bien celle que vous avez précisé au lancement
-  - l'application affiche au moins un meme (element HTML de classe `meme`)
+  - l'application affiche au moins un meme (élément HTML de classe `meme`)
 
 Documentation nécessaire à l'étape :
 - https://github.com/electron/spectron#clientgetwindowcount
