@@ -37,7 +37,7 @@ Nous allons commencer par démarrer notre application electron en affichant une 
 - Ouvrir le fichier `src/main.js`
 - Importer les dépendances `app` et `BrowserWindow` depuis `electron`
 - Sur l'événement `ready` de app, instancier une nouvelle `BrowserWindow`
-- Charger le fichier `windows/index.html` dans votre fenêtre nouvellement créée
+- Charger le fichier `windows/hello.html` dans votre fenêtre nouvellement créée
 - Démarrer votre application en executant `./node_modules/.bin/electron .`
 
 Documentation nécessaire à l'étape :
