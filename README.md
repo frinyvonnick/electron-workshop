@@ -300,7 +300,7 @@ electron-packager . --out=dist --app-version=$npm_package_version --platform=win
 
 Pour ceux qui veulent aller plus loin, vous pouvez rajouter des tests.
 
-- Ouvrir le fichier `src\tests\index.js`
+- Ouvrir le fichier `src/tests/index.js`
 - Rajouter les tests suivant :
   - l'application n'ouvre qu'une fenêtre au lancement
   - le titre de la fenêtre est bien `Electron meme generator`
@@ -311,6 +311,29 @@ Documentation nécessaire à l'étape :
 - https://github.com/electron/spectron#clientgetwindowcount
 - https://github.com/electron/spectron#browserwindow
 - https://github.com/electron/spectron#client
+
+<details>
+<summary>Solution</summary>
+Dans le fichier `src/tests/index.js`
+```js
+it('opens only one window', function () {
+  return app.client.getWindowCount().should.eventually.be.equal(1)
+})
+
+it('opens a window with "Electron meme generator" title', function () {
+  return app.client.browserWindow.getTitle().should.eventually.equal('Electron meme generator')
+})
+
+it('opens a window with the right size', function () {
+  return app.client.browserWindow.getBounds().should.eventually.have.property('width').and.be.equal(1000)
+                   .browserWindow.getBounds().should.eventually.have.property('height').and.be.equal(800)
+})
+
+it('displays the list of memes', function () {
+  return app.client.element('.meme').should.eventually.exist
+})
+```
+</details>
 
 Pour aller plus loin :
 - Le site d'electron : http://electron.atom.io
