@@ -174,6 +174,9 @@ Dans le fichier `src/main-process/grid.js`
 - Implémenter un callback qui va appeler la fonction `newEditWindow` avec le fichier choisi par l'utilisateur
 - Gérer l'événement `closed` en renvoyant la liste à jour de meme
 
+Documentation nécessaire à l'étape :
+- http://electron.atom.io/docs/api/dialog/
+
 <details>
 <summary>Solution</summary>
 Dans le fichier `src/renderer-process/grid.js`
@@ -202,9 +205,6 @@ ipcMain.on('open-file-dialog', (event) => {
 })
 ```
 </details>
-
-Documentation nécessaire à l'étape :
-- http://electron.atom.io/docs/api/dialog/
 
 ![Capture de l'application à l'étape 05](screenshots/etape-05.png)Etat de l'application à la fin de l'étape
 
