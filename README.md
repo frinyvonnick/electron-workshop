@@ -107,7 +107,7 @@ Dans le fichier `src/main-process/grid.js`
 - Dans celui-ci, importer le module `dialog` depuis `electron`
 - Déclarer l'event handler `open-file-dialog`
 - En réponse à cet event, afficher une `dialog` qui va lister seulement les fichiers images (extensions jpg, gif, png)
-- Implementer un callback qui va appeler la fonction `newEditWindow` avec le fichier choisi par l'utilisateur
+- Implémenter un callback qui va appeler la fonction `newEditWindow` avec le fichier choisi par l'utilisateur
 - Gérer l'événement `closed` en renvoyant la liste à jour de meme
 
 Documentation nécessaire à l'étape :
