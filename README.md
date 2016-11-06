@@ -174,6 +174,35 @@ Dans le fichier `src/main-process/grid.js`
 - Implémenter un callback qui va appeler la fonction `newEditWindow` avec le fichier choisi par l'utilisateur
 - Gérer l'événement `closed` en renvoyant la liste à jour de meme
 
+<details>
+<summary>Solution</summary>
+Dans le fichier `src/renderer-process/grid.js`
+```js
+document.getElementById('new-meme').addEventListener('click', () => ipcRenderer.send('open-file-dialog'))
+```
+Dans le fichier `src/main-process/grid.js`
+```js
+const { ipcMain, dialog } = require('electron')
+```
+```js
+ipcMain.on('open-file-dialog', (event) => {
+  dialog.showOpenDialog({
+    properties: ['openFile'],
+    filters: [{ name: 'Images', extensions: ['jpg', 'png', 'gif'] }]
+  }, (files) => {
+    if (files) {
+      const editWindow = newEditWindow(files[0])
+      editWindow.on('closed', () => {
+        getMemes(memes => {
+          event.sender.send('memes-sended', memes)
+        })
+      })
+    }
+  })
+})
+```
+</details>
+
 Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/dialog/
 
