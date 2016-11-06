@@ -288,6 +288,14 @@ Documentation nécessaire à l'étape :
 - https://github.com/electron-userland/electron-packager
 - https://github.com/electron-userland/electron-packager/blob/master/usage.txt
 
+<details>
+<summary>Solution</summary>
+Dans le fichier `package.json`
+```bash
+electron-packager . --out=dist --app-version=$npm_package_version --platform=win32 --arch=x64 --prune --asar --overwrite --ignore \"node_modules/\\.bin\"
+```
+</details>
+
 ### Etape bonus : Testing
 
 Pour ceux qui veulent aller plus loin, vous pouvez rajouter des tests.
