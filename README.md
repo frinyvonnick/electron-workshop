@@ -177,3 +177,7 @@ Documentation nécessaire à l'étape :
 - https://github.com/electron/spectron#clientgetwindowcount
 - https://github.com/electron/spectron#browserwindow
 - https://github.com/electron/spectron#client
+
+Pour aller plus loin :
+- Le site d'electron : http://electron.atom.io
+- La liste awesome-electron qui regroupe plein de projets autour d'Electron : https://github.com/sindresorhus/awesome-electron
