@@ -256,6 +256,21 @@ Documentation nécessaire à l'étape :
 - https://notifications.spec.whatwg.org/
 - http://electron.atom.io/docs/tutorial/desktop-environment-integration/#notifications-windows-linux-macos
 
+<details>
+<summary>Solution</summary>
+Dans le fichier `src/renderer-process/grid.js`
+```js
+new Notification('Meme Generator', { // eslint-disable-line no-new
+  body: 'Le meme a bien été supprimé'
+})
+```
+```js
+new Notification('Meme Generator', { // eslint-disable-line no-new
+  body: `Le meme a été sauvegardé à l'emplacement ${path}`
+})
+```
+</details>
+
 ![Capture de l'application à l'étape 07](screenshots/etape-07.png)Etat de l'application à la fin de l'étape
 
 ### Etape 08 : Packaging
