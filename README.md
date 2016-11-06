@@ -107,7 +107,6 @@ Dans le fichier `src/windows/index.html`
 ```
 </details>
 
-
 ![Capture de l'application à l'étape 03](screenshots/etape-03.png)Etat de l'application à la fin de l'étape
 
 ### Etape 04 : Inter Process Communication
@@ -128,6 +127,35 @@ Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/ipc-renderer/#sending-messages
 - http://electron.atom.io/docs/api/ipc-main/#listening-for-messages
 - http://electron.atom.io/docs/api/ipc-main/#sending-messages
+
+<details>
+<summary>Solution</summary>
+Dans le fichier `src/renderer-process/grid.js`
+```js
+const { ipcRenderer } = require('electron')
+```
+```js
+ipcRenderer.on('memes-sended', (e, images) => {
+  document.getElementById('content').innerHTML = images.reduce((prev, next, index) => {
+    return `${prev}
+    <div class="card meme" data-index="${index}">
+    <div class="img" style="background-image:url('${next.path.split('\\').join('\\\\')}')"></div>
+    <h3 title="${next.title}"><span>${next.title}</span></h3>
+    </div>`
+  }, '')
+```
+Dans le fichier `src/main-process/grid.js`
+```js
+const { ipcMain } = require('electron')
+```
+```js
+ipcMain.on('get-memes', (e) => {
+  getMemes(memes => {
+    e.sender.send('memes-sended', memes)
+  })
+})
+```
+</details>
 
 ![Capture de l'application à l'étape 04](screenshots/etape-04.png)Etat de l'application à la fin de l'étape
 
