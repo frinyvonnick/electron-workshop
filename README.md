@@ -47,11 +47,11 @@ Documentation nécessaire à l'étape :
 <details>
 <summary>Solution</summary>
 Dans le fichier `src/main.js`
-```
+```js
   const { app, BrowserWindow } = require('electron')
   const path = require('path')
 ```
-```
+```js
   mainWindow = new BrowserWindow()
   mainWindow.loadURL(path.join('file://', __dirname, 'windows/hello.html'))
 ```
