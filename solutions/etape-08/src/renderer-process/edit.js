@@ -85,11 +85,9 @@ document.getElementById('save').onclick = () => {
 
 // On ferme la fenêtre quand le meme est saved
 ipcRenderer.on('meme-saved', () => {
-  const notification = new Notification('Meme Generator', {
+  new Notification('Meme Generator', { // eslint-disable-line no-new
     body: 'Le meme a bien été sauvegardé'
   })
-
-  notification()
 
   setTimeout(() => {
     remote.getCurrentWindow().close()
