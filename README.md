@@ -74,9 +74,9 @@ Dans le fichier `src/windows/index.html`
 
 ![Capture de l'application à l'étape 03](screenshots/etape-03.png)Etat de l'application à la fin de l'étape
 
-### Etape 04 : Communication IPC
+### Etape 04 : Inter Process Communication
 
-Notre application maintenant affiche une liste statique d'images. La prochaine étape va consister à récupérer la liste des memes à afficher depuis un storage. Nous allons utiliser l'IPC pour échanger des informations entre le main-process et le renderer-process.
+Notre application maintenant affiche une liste statique d'images. La prochaine étape va consister à récupérer la liste des memes à afficher depuis un storage. Nous allons utiliser l'IPC (Inter Process Communication) pour échanger des informations entre le main-process et le renderer-process.
 
 Dans le fichier `src/renderer-process/grid.js`
 - Envoyer un message `get-memes` via le module `ipcRenderer`
