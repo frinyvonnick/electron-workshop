@@ -93,6 +93,20 @@ Dans le fichier `src/main.js`
 Dans le fichier `src/windows/index.html`
 - Require le fichier `src/renderer-process/grid.js` de manière relative à `index.html` dans la balise `<script>`
 
+<details>
+<summary>Solution</summary>
+Dans le fichier `src/main.js`
+```js
+  mainWindow.loadURL(path.join('file://', __dirname, 'windows/index.html'))
+```
+Dans le fichier `src/windows/index.html`
+```html
+  <script type="text/javascript">
+    require('../renderer-process/grid.js');
+  </script>
+```
+</details>
+
 
 ![Capture de l'application à l'étape 03](screenshots/etape-03.png)Etat de l'application à la fin de l'étape
 
