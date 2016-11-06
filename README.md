@@ -224,6 +224,24 @@ Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/menu/#render-process
 - http://electron.atom.io/docs/api/menu-item/
 
+<details>
+<summary>Solution</summary>
+Dans le fichier `src/renderer-process/grid.js`
+```js
+const { remote, ipcRenderer } = require('electron')
+const { Menu, MenuItem } = remote
+```
+```js
+element.addEventListener('contextmenu', e => {
+  e.preventDefault()
+  let menu = new Menu()
+  menu.append(new MenuItem({label: 'Save as', click (item, browserWindow) { ipcRenderer.send('save-from-grid', images[parseInt(element.getAttribute('data-index'), 10)].path) }}))
+  menu.append(new MenuItem({label: 'Delete', click (item, browserWindow) { ipcRenderer.send('delete-selected-meme', images[parseInt(element.getAttribute('data-index'), 10)]) }}))
+  menu.popup(remote.getCurrentWindow())
+})
+```
+</details>
+
 ![Capture de l'application à l'étape 06](screenshots/etape-06.png)Etat de l'application à la fin de l'étape
 
 ### Etape 07 : Notifications
