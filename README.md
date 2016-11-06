@@ -38,7 +38,7 @@ Nous allons commencer par démarrer notre application electron en affichant une 
 - Importer les dépendances `app` et `BrowserWindow` depuis `electron`
 - Sur l'événement `ready` de app, instancier une nouvelle `BrowserWindow`
 - Charger le fichier `windows/hello.html` dans votre fenêtre nouvellement créée
-- Démarrer votre application en executant `./node_modules/.bin/electron .`
+- Démarrer votre application en executant `electron .`
 
 Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/app/
