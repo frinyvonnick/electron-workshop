@@ -72,6 +72,15 @@ Documentation nécessaire à l'étape :
 - https://github.com/Quramy/electron-connect
 - http://electron.atom.io/docs/api/browser-window/
 
+<details>
+<summary>Solution</summary>
+Dans le fichier `src/main.js`
+```js
+  mainWindow = new BrowserWindow({ width: 1000, height: 800 })
+  mainWindow.webContents.openDevTools()
+```
+</details>
+
 ![Capture de l'application à l'étape 02](screenshots/etape-02.png)Etat de l'application à la fin de l'étape
 
 ### Etape 03 : Affichage de la liste des memes
