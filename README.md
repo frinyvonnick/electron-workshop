@@ -2,9 +2,9 @@
 
 # Workshop Electron du Devfest Nantes 2016
 
-Le but du workshop est de construire une application de génération de meme avec le framework Electron.
+Le but du workshop est de construire une application de génération de memes avec le framework Electron.
 
-Le workshop sera cadencé par des présentations de nouveaux concepts à chaque étape.
+Le workshop sera rythmé par des présentations de nouveaux concepts à chaque étape.
 
 Pour pouvoir continuer d'avancer même si une étape est problématique, nous vous fournissons les solutions de chacune des étapes.
 
@@ -26,7 +26,7 @@ src
 
 Afin de mettre en oeuvre les concepts d'electron vus dans le cours, nous vous proposons de développer une application de meme generator.
 
-Nous partirons d'un squelette de projet electron simple, qui sera enrichie au fur et à mesure des étapes. Le résultat final sera une application desktop multi-fenêtré, avec des interactions et comportements d'une application desktop moderne.
+Nous partirons d'un squelette de projet electron simple, qui sera enrichi au fur et à mesure des étapes. Le résultat final sera une application desktop multi-fenêtrée, avec les interactions et comportements d'une application desktop moderne.
 
 Le squelette est composé de tous les fichiers de l'application. Vous n'aurez qu'à compléter ces fichiers.
 
@@ -38,7 +38,7 @@ Nous allons commencer par démarrer notre application electron en affichant une 
 - Importer les dépendances `app` et `BrowserWindow` depuis `electron`
 - Sur l'événement `ready` de app, instancier une nouvelle `BrowserWindow`
 - Charger le fichier `windows/hello.html` dans votre fenêtre nouvellement créée
-- Démarrer votre application en executant `electron .`
+- Démarrer votre application en exécutant `electron .`
 
 Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/app/
@@ -59,9 +59,9 @@ Dans le fichier `src/main.js`
 
 ![Capture de l'application à l'étape 01](screenshots/etape-01.png)Etat de l'application à la fin de l'étape
 
-### Etape 02 : Customizer la fenêtre
+### Etape 02 : Customiser la fenêtre
 
-Maintenant que notre application electron affiche une première fenêtre, nous vous proposons de changer l'affichage avec différentes options. Nous allons aussi exploiter la capacité de live-reloading du module `electron-connect`.
+Maintenant que notre application electron affiche une première fenêtre, nous vous proposons de changer l'affichage à l'aide de différentes options. Nous allons aussi exploiter la capacité de live-reloading du module `electron-connect`.
 
 - Démarrer l'application en lançant `npm run dev`, l'application va démarrer en mode dev avec du live-reloading
 - Changer la taille de la fenêtre dans le fichier `src/main.js`
@@ -85,13 +85,13 @@ Dans le fichier `src/main.js`
 
 ### Etape 03 : Affichage de la liste des memes
 
-Nous allons maintenant afficher dans notre fenêtre la galerie de meme.
+Nous allons maintenant afficher la galerie de memes dans notre fenêtre.
 
 Dans le fichier `src/main.js`
 - Changer le fichier HTML chargé dans la mainWindow par le fichier `windows/index.html`
 
 Dans le fichier `src/windows/index.html`
-- Require le fichier `src/renderer-process/grid.js` de manière relative à `index.html` dans la balise `<script>`
+- Avec la function require, importer le fichier `src/renderer-process/grid.js` de manière relative au fichier `index.html` dans la balise `<script>`
 
 <details>
 <summary>Solution</summary>
@@ -111,17 +111,17 @@ Dans le fichier `src/windows/index.html`
 
 ### Etape 04 : Inter Process Communication
 
-Notre application maintenant affiche une liste statique d'images. La prochaine étape va consister à récupérer la liste des memes à afficher depuis un storage. Nous allons utiliser l'IPC (Inter Process Communication) pour échanger des informations entre le main-process et le renderer-process.
+Notre application affiche maintenant une liste statique d'images. La prochaine étape va consister à récupérer la liste des memes à afficher depuis un espace de stockage local (`electron-json-storage`). Nous allons utiliser l'IPC (Inter Process Communication) pour échanger des informations entre le main-process et le renderer-process.
 
 Dans le fichier `src/renderer-process/grid.js`
 - Envoyer un message `get-memes` via le module `ipcRenderer`
 - Déplacer le rendu de la galerie dans le callback appelé lors de la réception d'un message `meme-sended`
-- Utiliser les images passées en paramètre de ce callback
+- Utiliser la liste des images passée en paramètre de ce callback
 
 Dans le fichier `src/main-process/grid.js`
 - Mettre en place un handler pour le message `get-memes` avec le module `ipcMain`
 - Dans le callback du handler, appeler la fonction `getMemes` qui prend un callback comme paramètre
-- Dans le callback de `getMemes`, émettre en retour un message `meme-sended` avec la liste des images fourni en paramètre
+- Dans le callback de `getMemes`, émettre en retour un message `meme-sended` avec la liste des images fournie en paramètre
 
 Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/ipc-renderer/#sending-messages
@@ -161,7 +161,7 @@ ipcMain.on('get-memes', (e) => {
 
 ### Etape 05 : File dialog
 
-Maintenant que nous avons une liste prédéfinie, nous allons donner la possibilité à l'utilisateur de rajouter l'image de son choix via une file dialog.
+Maintenant que nous avons une liste de memes par défaut, nous allons donner la possibilité à l'utilisateur d'ajouter l'image de son choix via une file dialog.
 
 Dans le fichier `src/renderer-process/grid.js`
 - Ajouter un event listener `click` sur l'élément avec l'id `new-meme`
@@ -172,7 +172,7 @@ Dans le fichier `src/main-process/grid.js`
 - Déclarer l'event handler `open-file-dialog`
 - En réponse à cet event, afficher une `dialog` qui va lister seulement les fichiers images (extensions jpg, gif, png)
 - Implémenter un callback qui va appeler la fonction `newEditWindow` avec le fichier choisi par l'utilisateur
-- Gérer l'événement `closed` en renvoyant la liste à jour de meme
+- Gérer l'événement `closed` en renvoyant la liste de memes à jour
 
 Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/dialog/
@@ -210,7 +210,7 @@ ipcMain.on('open-file-dialog', (event) => {
 
 ### Etape 06 : Menu contextuel
 
-A cette étape, nous allons rajouter un menu contextuel pour effacer et sauvegarder chacune des images de la galerie de meme. Nous allons utiliser les classes de menu présentes dans electron.
+A cette étape, nous allons ajouter un menu contextuel afin de supprimer et de sauvegarder chacune des images de la galerie de memes. Nous allons utiliser les classes de menu présentes dans electron.
 
 - Ouvrir le fichier `src/renderer-process/grid.js`
 - Importer le module `remote` depuis le module `electron` pour pouvoir accéder à l'API du main process
@@ -246,10 +246,10 @@ element.addEventListener('contextmenu', e => {
 
 ### Etape 07 : Notifications
 
-Maintenant que nous avons la possibilité de rajouter et d'enlever des memes, nous allons émettre des notifications pour que l'utilisateur ait une confirmation de ses actions. Pour ce faire nous allons utiliser les notifications de l'API HTML5.
+Maintenant que nous avons la possibilité d'ajouter et d'enlever des memes, nous allons émettre des notifications pour que l'utilisateur obtienne une confirmation de ses actions. Pour ce faire nous allons utiliser la classe `Notification` de l'API HTML5.
 
 - Ouvrir le fichier `src/renderer-process/grid.js`
-- Ajouter une notification en utilisant la classe `Notification` après l'effacement d'un meme
+- Ajouter une notification en utilisant la classe `Notification` après la suppression d'un meme
 - Ajouter une notification après l'enregistrement d'un meme
 
 Documentation nécessaire à l'étape :
@@ -298,14 +298,14 @@ electron-packager . --out=dist --app-version=$npm_package_version --platform=win
 
 ### Etape bonus : Testing
 
-Pour ceux qui veulent aller plus loin, vous pouvez rajouter des tests.
+Pour ceux qui veulent aller plus loin, vous pouvez ajouter des tests.
 
 - Ouvrir le fichier `src/tests/index.js`
 - Rajouter les tests suivant :
-  - l'application n'ouvre qu'une fenêtre au lancement
+  - l'application n'ouvre qu'une seule fenêtre au lancement
   - le titre de la fenêtre est bien `Electron meme generator`
-  - la taille de la fenêtre est bien celle que vous avez précisé au lancement
-  - l'application affiche au moins un meme (élément HTML de classe `meme`)
+  - la taille de la fenêtre est bien celle que vous avez précisée au lancement
+  - l'application affiche au moins un meme (élément HTML avec la classe CSS `meme`)
 
 Documentation nécessaire à l'étape :
 - https://github.com/electron/spectron#clientgetwindowcount
