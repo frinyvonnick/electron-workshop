@@ -1,0 +1,62 @@
+{
+  "name": "electron-workshop",
+  "version": "0.1.0",
+  "description": "Workshop Electron du Devfest Nantes 2016",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "gulp",
+    "dev": "gulp --debug",
+    "lint": "standard",
+    "less": "gulp less",
+    "test": "mocha src/tests && npm run lint",
+    "package": "echo \"TODO (Etape 8): Utiliser electron-packager pour générer l'éxécutable de votre application\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frinyvonnick/electron-workshop.git"
+  },
+  "keywords": [
+    "electron-app",
+    "electron"
+  ],
+  "author": "Yvonnick Frin <yvonnick.frin@zenika.com>",
+  "contributors": [
+    "Eric Briand <eric.briand@zenika.com>",
+    "Philippe Charrière <k33g@github.com>"
+  ],
+  "files": [
+    "index.js",
+    "index.html",
+    "index.css"
+  ],
+  "dependencies": {
+    "electron-debug": "1.0.0",
+    "electron-json-storage": "^2.0.1",
+    "jimp": "0.2.27",
+    "glob": "7.0.5"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "devtron": "1.1.0",
+    "electron": "1.4.2",
+    "electron-connect": "0.6.0",
+    "electron-packager": "8.0.0",
+    "gulp": "3.9.1",
+    "gulp-less": "3.1.0",
+    "less": "2.7.1",
+    "mocha": "^3.1.2",
+    "spectron": "3.4.0",
+    "standard": "8.2.0"
+  },
+  "standard": {
+    "globals": [
+      "Notification"
+    ]
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frinyvonnick/electron-workshop/issues"
+  },
+  "homepage": "https://github.com/frinyvonnick/electron-workshop#readme"
+}
