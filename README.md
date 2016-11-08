@@ -91,7 +91,7 @@ Dans le fichier `src/main.js`
 - Changer le fichier HTML chargé dans la mainWindow par le fichier `windows/index.html`
 
 Dans le fichier `src/windows/index.html`
-- Avec la function require, importer le fichier `src/renderer-process/grid.js` de manière relative au fichier `index.html` dans la balise `<script>`
+- Avec la fonction require, importer le fichier `src/renderer-process/grid.js` de manière relative au fichier `index.html` dans la balise `<script>`
 
 <details>
 <summary>Solution</summary>
