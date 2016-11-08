@@ -9,7 +9,7 @@
     "lint": "standard",
     "less": "gulp less",
     "test": "mocha src/tests && npm run lint",
-    "package": "electron-packager . --out=dist --app-version=$npm_package_version --platform=win32 --arch=x64 --prune --asar --overwrite --ignore \"node_modules/\\.bin\""
+    "package": "electron-packager . --out=dist --app-version=$npm_package_version --platform=win32 --arch=x64 --asar --overwrite --ignore \"node_modules/\\.bin\""
   },
   "repository": {
     "type": "git",

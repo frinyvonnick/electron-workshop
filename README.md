@@ -4,7 +4,7 @@
 
 Le but du workshop est de construire une application de génération de memes avec le framework Electron.
 
-Le workshop sera rythmé par des présentations de nouveaux concepts à chaque étape.
+Le workshop commencera d'abord par une présentation d'Electron avant de vous laissez avancer à votre rythme.
 
 Pour pouvoir continuer d'avancer même si une étape est problématique, nous vous fournissons les solutions de chacune des étapes.
 
@@ -24,19 +24,20 @@ src
 
 ## Description des étapes
 
-Afin de mettre en oeuvre les concepts d'electron vus dans le cours, nous vous proposons de développer une application de meme generator.
+Afin de mettre en oeuvre les concepts d'Electron, nous vous proposons de développer une application de meme generator.
 
-Nous partirons d'un squelette de projet electron simple, qui sera enrichi au fur et à mesure des étapes. Le résultat final sera une application desktop multi-fenêtrée, avec les interactions et comportements d'une application desktop moderne.
+Nous partirons d'un squelette de projet Electron simple, qui sera enrichi au fur et à mesure des étapes. Le résultat final sera une application desktop multi-fenêtrée, avec les interactions et comportements d'une application desktop moderne.
 
-Le squelette est composé de tous les fichiers de l'application. Vous n'aurez qu'à compléter ces fichiers.
+Le squelette est composé de tous les fichiers de l'application. Vous n'aurez qu'à compléter ces fichiers. Dans chacun de ces fichiers, vous trouverez pour chacune des étapes des commentaires du type `// TODO (Etape X)` qui vous permettra de voir où placer votre code.
 
 ### Etape 01 : Hello world!
 
-Nous allons commencer par démarrer notre application electron en affichant une première page statique.
+Nous allons commencer par démarrer notre application Electron en affichant une première page statique.
 
 - Ouvrir le fichier `src/main.js`
 - Importer les dépendances `app` et `BrowserWindow` depuis `electron`
-- Sur l'événement `ready` de app, instancier une nouvelle `BrowserWindow`
+- Importer la librairie `path`
+- Sur l'événement `ready` de app, instancier une nouvelle `BrowserWindow` et assigner à `mainWindow`
 - Charger le fichier `windows/hello.html` dans votre fenêtre nouvellement créée
 - Démarrer votre application en exécutant `electron .`
 
@@ -61,7 +62,7 @@ Dans le fichier `src/main.js`
 
 ### Etape 02 : Customiser la fenêtre
 
-Maintenant que notre application electron affiche une première fenêtre, nous vous proposons de changer l'affichage à l'aide de différentes options. Nous allons aussi exploiter la capacité de live-reloading du module `electron-connect`.
+Maintenant que notre application Electron affiche une première fenêtre, nous vous proposons de changer l'affichage à l'aide de différentes options. Nous allons aussi exploiter la capacité de live-reloading du module `electron-connect`.
 
 - Démarrer l'application en lançant `npm run dev`, l'application va démarrer en mode dev avec du live-reloading
 - Changer la taille de la fenêtre dans le fichier `src/main.js`
@@ -70,13 +71,13 @@ Maintenant que notre application electron affiche une première fenêtre, nous v
 
 Documentation nécessaire à l'étape :
 - https://github.com/Quramy/electron-connect
-- http://electron.atom.io/docs/api/browser-window/
+- http://electron.atom.io/docs/api/browser-window/#new-browserwindowoptions
 
 <details>
 <summary>Solution</summary>
 Dans le fichier `src/main.js`
 ```js
-  mainWindow = new BrowserWindow({ width: 1000, height: 800 })
+  mainWindow = new BrowserWindow({ width: 1000, height: 800, frame : false })
   mainWindow.webContents.openDevTools()
 ```
 </details>
@@ -132,7 +133,7 @@ Documentation nécessaire à l'étape :
 <summary>Solution</summary>
 Dans le fichier `src/renderer-process/grid.js`
 ```js
-const { ipcRenderer } = require('electron')
+ipcRenderer.send('get-memes')
 ```
 ```js
 ipcRenderer.on('memes-sended', (e, images) => {
@@ -145,9 +146,6 @@ ipcRenderer.on('memes-sended', (e, images) => {
   }, '')
 ```
 Dans le fichier `src/main-process/grid.js`
-```js
-const { ipcMain } = require('electron')
-```
 ```js
 ipcMain.on('get-memes', (e) => {
   getMemes(memes => {
@@ -172,7 +170,7 @@ Dans le fichier `src/main-process/grid.js`
 - Déclarer l'event handler `open-file-dialog`
 - En réponse à cet event, afficher une `dialog` qui va lister seulement les fichiers images (extensions jpg, gif, png)
 - Implémenter un callback qui va appeler la fonction `newEditWindow` avec le fichier choisi par l'utilisateur
-- Gérer l'événement `closed` en renvoyant la liste de memes à jour
+- Gérer l'événement `closed` de la fenêtre nouvellement créée en renvoyant la liste de memes à jour
 
 Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/dialog/
@@ -210,12 +208,12 @@ ipcMain.on('open-file-dialog', (event) => {
 
 ### Etape 06 : Menu contextuel
 
-A cette étape, nous allons ajouter un menu contextuel afin de supprimer et de sauvegarder chacune des images de la galerie de memes. Nous allons utiliser les classes de menu présentes dans electron.
+A cette étape, nous allons ajouter un menu contextuel afin de supprimer et de sauvegarder chacune des images de la galerie de memes. Nous allons utiliser les classes de menu présentes dans Electron.
 
 - Ouvrir le fichier `src/renderer-process/grid.js`
 - Importer le module `remote` depuis le module `electron` pour pouvoir accéder à l'API du main process
 - Importer les classes `Menu` et `MenuItem` depuis `remote`
-- Ajouter un event listener `contextmenu` sur chacun des élements de la galerie
+- Ajouter un event listener `contextmenu` sur chacun des éléments de la galerie
 - Créer un menu contextuel dans le callback de l'event listener avec comme items :
  - `Save as` qui enverra un message `save-from-grid` sur l'IPC
  - `Delete` qui enverra un message `deleted-selected-meme` sur l'IPC
@@ -223,6 +221,7 @@ A cette étape, nous allons ajouter un menu contextuel afin de supprimer et de s
 Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/menu/#render-process
 - http://electron.atom.io/docs/api/menu-item/
+- http://electron.atom.io/docs/api/remote/#remotegetcurrentwindow
 
 <details>
 <summary>Solution</summary>
@@ -278,10 +277,10 @@ new Notification('Meme Generator', { // eslint-disable-line no-new
 Nous allons terminer l'atelier en packageant notre application. Pour cela, nous allons utiliser electron-packager qui est maintenu par la communauté.
 
 - Ouvrir le fichier `package.json`
-- Ajouter un npm script `package` qui va appeler electron-packager
+- Implémenter le npm script `package` qui va appeler electron-packager
 - Ajouter les options pour :
   - cibler votre plateforme et son architecture
-  - ignorer les dépendances de développement
+  - choisir `dist` comme répertoire de sortie
   - pouvoir repackager l'application même si le packaging a déjà été créé
 
 Documentation nécessaire à l'étape :
@@ -292,7 +291,7 @@ Documentation nécessaire à l'étape :
 <summary>Solution</summary>
 Dans le fichier `package.json`
 ```bash
-electron-packager . --out=dist --app-version=$npm_package_version --platform=win32 --arch=x64 --prune --asar --overwrite --ignore \"node_modules/\\.bin\"
+electron-packager . --out=dist --app-version=$npm_package_version --platform=win32 --arch=x64 --asar --overwrite --ignore \"node_modules/\\.bin\"
 ```
 </details>
 
@@ -308,8 +307,11 @@ Pour ceux qui veulent aller plus loin, vous pouvez ajouter des tests.
   - l'application affiche au moins un meme (élément HTML avec la classe CSS `meme`)
 
 Documentation nécessaire à l'étape :
+- http://chaijs.com/api/bdd/
+- https://github.com/domenic/chai-as-promised#shouldexpect-interface
 - https://github.com/electron/spectron#clientgetwindowcount
 - https://github.com/electron/spectron#browserwindow
+- http://electron.atom.io/docs/api/browser-window/#wingetbounds
 - https://github.com/electron/spectron#client
 
 <details>
@@ -336,5 +338,5 @@ it('displays the list of memes', function () {
 </details>
 
 Pour aller plus loin :
-- Le site d'electron : http://electron.atom.io
+- Le site d'Electron : http://electron.atom.io
 - La liste awesome-electron qui regroupe plein de projets autour d'Electron : https://github.com/sindresorhus/awesome-electron

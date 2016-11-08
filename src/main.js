@@ -14,7 +14,7 @@ app.on('ready', () => {
   // - Changer la taille de la fenêtre
   // - Enlever les bordures
   // - Ouvrir les devtools au démarrage
-	// TODO (Etape 1): Instancier une nouvelle instance de BrowserWindow
+	// TODO (Etape 1): Instancier une nouvelle instance de BrowserWindow et assigner à mainWindow
 
   // and load the index.html of the app.
   // TODO (Etape 3): Changer le fichier html cible par index.html
