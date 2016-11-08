@@ -28,7 +28,7 @@ Afin de mettre en oeuvre les concepts d'electron vus dans le cours, nous vous pr
 
 Nous partirons d'un squelette de projet electron simple, qui sera enrichi au fur et à mesure des étapes. Le résultat final sera une application desktop multi-fenêtrée, avec les interactions et comportements d'une application desktop moderne.
 
-Le squelette est composé de tous les fichiers de l'application. Vous n'aurez qu'à compléter ces fichiers.
+Le squelette est composé de tous les fichiers de l'application. Vous n'aurez qu'à compléter ces fichiers. Dans chacun de ces fichiers, vous trouverez pour chacune des étapes des commentaires du type `// TODO (Etape X)` qui vous permettra de voir où placer votre code.
 
 ### Etape 01 : Hello world!
 
