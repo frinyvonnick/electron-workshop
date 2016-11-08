@@ -307,8 +307,11 @@ Pour ceux qui veulent aller plus loin, vous pouvez ajouter des tests.
   - l'application affiche au moins un meme (élément HTML avec la classe CSS `meme`)
 
 Documentation nécessaire à l'étape :
+- http://chaijs.com/api/bdd/
+- https://github.com/domenic/chai-as-promised#shouldexpect-interface
 - https://github.com/electron/spectron#clientgetwindowcount
 - https://github.com/electron/spectron#browserwindow
+- http://electron.atom.io/docs/api/browser-window/#wingetbounds
 - https://github.com/electron/spectron#client
 
 <details>

@@ -51,17 +51,17 @@ describe('Meme generator', function () {
   })
 
   it('opens a window with "Electron meme generator" title', function () {
-    // TODO (Etape Bonus): implementer le test qui vérifie que l'application n'ouvre qu'une fenêtre au lancement
+    // TODO (Etape Bonus): implementer le test qui vérifie que le titre de la fenêtre est bien 'Electron meme generator'
     return chai.expect(false).to.be.ok
   })
 
   it('opens a window with the right size', function () {
-    // TODO (Etape Bonus): implementer le test qui vérifie que l'application n'ouvre qu'une fenêtre au lancement
+    // TODO (Etape Bonus): implementer le test qui vérifie que la taille de la fenêtre est bien celle que vous avez précisée au lancement
     return chai.expect(false).to.be.ok
   })
 
   it('displays the list of memes', function () {
-    // TODO (Etape Bonus): implementer le test qui vérifie que l'application n'ouvre qu'une fenêtre au lancement
+    // TODO (Etape Bonus): implementer le test qui vérifie que l'application affiche au moins un meme (élément HTML avec la classe CSS 'meme')
     return chai.expect(false).to.be.ok
   })
 })
