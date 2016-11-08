@@ -277,10 +277,10 @@ new Notification('Meme Generator', { // eslint-disable-line no-new
 Nous allons terminer l'atelier en packageant notre application. Pour cela, nous allons utiliser electron-packager qui est maintenu par la communauté.
 
 - Ouvrir le fichier `package.json`
-- Ajouter un npm script `package` qui va appeler electron-packager
+- Implémenter le npm script `package` qui va appeler electron-packager
 - Ajouter les options pour :
   - cibler votre plateforme et son architecture
-  - ignorer les dépendances de développement
+  - choisir `dist` comme répertoire de sortie
   - pouvoir repackager l'application même si le packaging a déjà été créé
 
 Documentation nécessaire à l'étape :
@@ -291,7 +291,7 @@ Documentation nécessaire à l'étape :
 <summary>Solution</summary>
 Dans le fichier `package.json`
 ```bash
-electron-packager . --out=dist --app-version=$npm_package_version --platform=win32 --arch=x64 --prune --asar --overwrite --ignore \"node_modules/\\.bin\"
+electron-packager . --out=dist --app-version=$npm_package_version --platform=win32 --arch=x64 --asar --overwrite --ignore \"node_modules/\\.bin\"
 ```
 </details>
 
