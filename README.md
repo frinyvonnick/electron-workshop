@@ -213,7 +213,7 @@ A cette étape, nous allons ajouter un menu contextuel afin de supprimer et de s
 - Ouvrir le fichier `src/renderer-process/grid.js`
 - Importer le module `remote` depuis le module `electron` pour pouvoir accéder à l'API du main process
 - Importer les classes `Menu` et `MenuItem` depuis `remote`
-- Ajouter un event listener `contextmenu` sur chacun des élements de la galerie
+- Ajouter un event listener `contextmenu` sur chacun des éléments de la galerie
 - Créer un menu contextuel dans le callback de l'event listener avec comme items :
  - `Save as` qui enverra un message `save-from-grid` sur l'IPC
  - `Delete` qui enverra un message `deleted-selected-meme` sur l'IPC
@@ -221,6 +221,7 @@ A cette étape, nous allons ajouter un menu contextuel afin de supprimer et de s
 Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/menu/#render-process
 - http://electron.atom.io/docs/api/menu-item/
+- http://electron.atom.io/docs/api/remote/#remotegetcurrentwindow
 
 <details>
 <summary>Solution</summary>
