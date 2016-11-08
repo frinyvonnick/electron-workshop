@@ -4,7 +4,7 @@
 
 Le but du workshop est de construire une application de génération de memes avec le framework Electron.
 
-Le workshop sera rythmé par des présentations de nouveaux concepts à chaque étape.
+Le workshop commencera d'abord par une présentation d'Electron avant de vous laissez avancer à votre rythme.
 
 Pour pouvoir continuer d'avancer même si une étape est problématique, nous vous fournissons les solutions de chacune des étapes.
 
