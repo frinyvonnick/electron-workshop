@@ -133,7 +133,7 @@ Documentation nécessaire à l'étape :
 <summary>Solution</summary>
 Dans le fichier `src/renderer-process/grid.js`
 ```js
-const { ipcRenderer } = require('electron')
+ipcRenderer.send('get-memes')
 ```
 ```js
 ipcRenderer.on('memes-sended', (e, images) => {
@@ -146,9 +146,6 @@ ipcRenderer.on('memes-sended', (e, images) => {
   }, '')
 ```
 Dans le fichier `src/main-process/grid.js`
-```js
-const { ipcMain } = require('electron')
-```
 ```js
 ipcMain.on('get-memes', (e) => {
   getMemes(memes => {
