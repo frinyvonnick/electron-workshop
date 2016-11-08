@@ -71,13 +71,13 @@ Maintenant que notre application Electron affiche une première fenêtre, nous v
 
 Documentation nécessaire à l'étape :
 - https://github.com/Quramy/electron-connect
-- http://electron.atom.io/docs/api/browser-window/
+- http://electron.atom.io/docs/api/browser-window/#new-browserwindowoptions
 
 <details>
 <summary>Solution</summary>
 Dans le fichier `src/main.js`
 ```js
-  mainWindow = new BrowserWindow({ width: 1000, height: 800 })
+  mainWindow = new BrowserWindow({ width: 1000, height: 800, frame : false })
   mainWindow.webContents.openDevTools()
 ```
 </details>
