@@ -170,7 +170,7 @@ Dans le fichier `src/main-process/grid.js`
 - Déclarer l'event handler `open-file-dialog`
 - En réponse à cet event, afficher une `dialog` qui va lister seulement les fichiers images (extensions jpg, gif, png)
 - Implémenter un callback qui va appeler la fonction `newEditWindow` avec le fichier choisi par l'utilisateur
-- Gérer l'événement `closed` en renvoyant la liste de memes à jour
+- Gérer l'événement `closed` de la fenêtre nouvellement créée en renvoyant la liste de memes à jour
 
 Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/dialog/
