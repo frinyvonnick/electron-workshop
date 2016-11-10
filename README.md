@@ -116,13 +116,13 @@ Notre application affiche maintenant une liste statique d'images. La prochaine �
 
 Dans le fichier `src/renderer-process/grid.js`
 - Envoyer un message `get-memes` via le module `ipcRenderer`
-- Déplacer le rendu de la galerie dans le callback appelé lors de la réception d'un message `meme-sended`
+- Déplacer le rendu de la galerie dans le callback appelé lors de la réception d'un message `memes-sended`
 - Utiliser la liste des images passée en paramètre de ce callback
 
 Dans le fichier `src/main-process/grid.js`
 - Mettre en place un handler pour le message `get-memes` avec le module `ipcMain`
 - Dans le callback du handler, appeler la fonction `getMemes` qui prend un callback comme paramètre
-- Dans le callback de `getMemes`, émettre en retour un message `meme-sended` avec la liste des images fournie en paramètre
+- Dans le callback de `getMemes`, émettre en retour un message `memes-sended` avec la liste des images fournie en paramètre
 
 Documentation nécessaire à l'étape :
 - http://electron.atom.io/docs/api/ipc-renderer/#sending-messages
