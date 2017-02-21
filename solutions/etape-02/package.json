@@ -1,7 +1,7 @@
 {
   "name": "electron-workshop",
   "version": "0.1.0",
-  "description": "Workshop Electron du Devfest Nantes 2016",
+  "description": "Workshop Electron Nightclazz Zenika",
   "main": "src/main.js",
   "scripts": {
     "start": "gulp",
