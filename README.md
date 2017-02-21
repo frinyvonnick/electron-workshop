@@ -1,6 +1,6 @@
 [![Electron Logo](http://electron.atom.io/images/electron-logo.svg)](http://electron.atom.io/)
 
-# Workshop Electron du Devfest Nantes 2016
+# Workshop Electron NightClazz Zenika
 
 Le but du workshop est de construire une application de génération de memes avec le framework Electron.
 
